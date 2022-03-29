@@ -36,6 +36,9 @@ int init_all_mutex(t_data *d)
 
 	if (pthread_mutex_init(&d->mtx_one_is_dead, NULL) != 0)
 		return (print_error(TYPE_ERR_MTX_INIT));
+	
+	if (pthread_mutex_init(&d->mtx_message, NULL) != 0)
+		return (print_error(TYPE_ERR_MTX_INIT));
 
 	return (NO_ERROR);
 }
@@ -53,6 +56,8 @@ void destroy_all_mutex(t_data *d)
 	}
 
 	pthread_mutex_destroy(&d->mtx_one_is_dead);
+
+	pthread_mutex_destroy(&d->mtx_message);
 }
 
 /* ************************************************************************** */

@@ -5,11 +5,15 @@
 /* ************************************************************************** */
 void *philo_activity(void *arg)
 {
+    // INIT TIMESTAMP OF PHILO
+    
     // TAKE FORK
 
     // EAT
 
     // WAIT: finis to eat
+
+    // GIVE FORKS BACK
 
     // SLEEP
 

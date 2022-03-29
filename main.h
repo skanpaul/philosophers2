@@ -16,7 +16,7 @@
 # include <stdbool.h>
 # include <unistd.h>
 /* -------------------- */
-# include "msg_err.h"
+# include "message.h"
 /* ************************************************************************** */
 typedef struct s_data t_data;
 typedef struct s_philo t_philo;
@@ -35,10 +35,11 @@ typedef struct s_data
 	pthread_t		thd_check_life;
 	pthread_mutex_t	*mtx_fork_list;
 	pthread_mutex_t	mtx_one_is_dead;
+	pthread_mutex_t	mtx_message;
 	// ------------------------------
 
 } t_data;
-/* -------------------------------------------------------------------------- */
+/* ************************************************************************** */
 typedef struct s_philo
 {
 	int				pos;
@@ -47,12 +48,17 @@ typedef struct s_philo
 	int				pos_f_r; // position fork right	
 	bool			dead;
 	// ------------------------------
+	int				ts_fork;
+	int				ts_eat;
+	int				ts_sleep;
+	int				ts_think;
+	int				ts_died;
+	// ------------------------------
 	t_data			*d;
 	pthread_t		*th_id;
 	// ------------------------------
-
 } t_philo;
-/* -------------------------------------------------------------------------- */
+/* ************************************************************************** */
 typedef enum e_error
 {
 	// ----------------------------------
@@ -97,9 +103,15 @@ void	ft_msleep(int millisecond);
 void	*philo_activity(void *arg);
 void	*check_life(void *arg);
 /* -------------------------------------------------------- */
-
-
-
+void	take_forks(t_philo *p);
+void	give_forks_back(t_philo *p);
+/* -------------------------------------------------------- */
+void	print_mutex(t_philo *p, int timestamp, char *msg);
+void	print_fork(t_philo *p);
+void	print_eat(t_philo *p);
+void	print_sleep(t_philo *p);
+void	print_think(t_philo *p);
+void	print_died(t_philo *p);
 
 /* ************************************************************************** */
 #endif

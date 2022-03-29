@@ -22,6 +22,12 @@ void init_philo_struct(t_philo *p, t_data *d)
 		p[i].pos_f_r = give_pos_fork_right(p, i);	// init position fork RIGHT
 		p[i].dead = false;
 		//-----------------------------------------
+		p[i].ts_fork = 0;
+		p[i].ts_eat = 0;
+		p[i].ts_sleep = 0;
+		p[i].ts_think = 0;
+		p[i].ts_died = 0;
+		//-----------------------------------------
 		i++;
 	}
 }

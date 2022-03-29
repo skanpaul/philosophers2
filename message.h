@@ -19,4 +19,11 @@
 // ----------------------------------
 # define MSG_ERR_THD_CREATE "ERROR: creating THREAD\n"
 /* ************************************************************************** */
+# define MSG_FORK       " has taken a fork\n"
+# define MSG_EAT        " is eating\n"
+# define MSG_SLEEP      " is sleeping\n"
+# define MSG_THINK      " is thinking\n"
+# define MSG_DIED       " died\n"
+
+/* ************************************************************************** */
 #endif
