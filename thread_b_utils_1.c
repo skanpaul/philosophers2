@@ -34,9 +34,9 @@ bool is_this_philo_dead(t_philo *p)
 	{
 		p->ts_died = actual;
 		
-		pthread_mutex_lock(&p->mtx_dead);
-		p->dead = true;
-		pthread_mutex_unlock(&p->mtx_dead);
+		pthread_mutex_lock(&p->mtx_philo_dead);
+		p->philo_dead = true;
+		pthread_mutex_unlock(&p->mtx_philo_dead);
 		answer = true;
 		print_died(p);
 	}

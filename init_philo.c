@@ -20,7 +20,7 @@ void init_philo_struct(t_philo *p, t_data *d)
 		p[i].th_id = 0;
 		p[i].pos_f_l = i;							// init position fork LEFT
 		p[i].pos_f_r = give_pos_fork_right(p, i);	// init position fork RIGHT
-		p[i].dead = false;
+		p[i].philo_dead = false;
 		//-----------------------------------------
 		p[i].ts_fork = (t_timeval){0,0};
 		p[i].ts_eat = (t_timeval){0,0};

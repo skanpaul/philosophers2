@@ -38,7 +38,8 @@ typedef struct s_data
 	t_philo			*philo_list;
 	pthread_t		thd_check_life;
 	pthread_mutex_t	*mtx_fork_list;
-	pthread_mutex_t	mtx_one_is_dead;
+	// ------------------------------
+	pthread_mutex_t	mtx_finish_main;
 	pthread_mutex_t	mtx_message;
 	// ------------------------------
 
@@ -51,8 +52,8 @@ typedef struct s_philo
 	pthread_t		th_id;
 	int				pos_f_l; // positon fork left
 	int				pos_f_r; // position fork right	
-	pthread_mutex_t	mtx_dead;
-	bool			dead;
+	pthread_mutex_t	mtx_philo_dead;
+	bool			philo_dead;
 	// ------------------------------
 	pthread_mutex_t	mtx_timestamp;
 	t_timeval		ts_fork;
@@ -105,7 +106,9 @@ int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 void	ft_msleep(int millisecond);
 
+/* ************************************************************************** */
 /* *********************< THREAD: philo_activity >*************************** */
+/* ************************************************************************** */
 void	*philo_activity(void *arg);
 /* -------------------------------------------------------- */
 int		take_forks_left(t_philo *p);
@@ -124,7 +127,9 @@ void	gettimeofday_mutex(t_timeval *tv, t_philo *p);
 /* -------------------------------------------------------- */
 bool	is_someone_dead(t_philo *p);
 
+/* ************************************************************************** */
 /* ************************< THREAD: check_life >**************************** */
+/* ************************************************************************** */
 void	*check_life(void *arg);
 /* -------------------------------------------------------- */
 bool	is_this_philo_dead(t_philo *p);

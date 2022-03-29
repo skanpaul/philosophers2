@@ -23,13 +23,14 @@ int main(int argc, char **argv)
 		return (ERROR + clean_game(&d));
 	/* -------------------------------------------- */
 
-	// lock one is dead	
-	pthread_mutex_lock(&d.mtx_one_is_dead);
+	// lock for NOT FINISH MAIN
+	pthread_mutex_lock(&d.mtx_finish_main);
 
 	if (start_thread(&d) == ERROR)
 		return (ERROR + clean_game(&d));
 
-	pthread_mutex_lock(&d.mtx_one_is_dead);
+	// wait for FINISH MAIN when someone is DEAD
+	pthread_mutex_lock(&d.mtx_finish_main);
 
 
 	clean_game(&d);

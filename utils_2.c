@@ -28,7 +28,7 @@ int init_all_mutex(t_data *d)
 		if (pthread_mutex_init(&d->mtx_fork_list[i], NULL) != 0)
 			return (print_error(TYPE_ERR_MTX_INIT));
 
-		if (pthread_mutex_init(&d->philo_list[i].mtx_dead, NULL) != 0)
+		if (pthread_mutex_init(&d->philo_list[i].mtx_philo_dead, NULL) != 0)
 			return (print_error(TYPE_ERR_MTX_INIT));
 
 		if (pthread_mutex_init(&d->philo_list[i].mtx_timestamp, NULL) != 0)
@@ -36,7 +36,7 @@ int init_all_mutex(t_data *d)
 		i++;
 	}
 
-	if (pthread_mutex_init(&d->mtx_one_is_dead, NULL) != 0)
+	if (pthread_mutex_init(&d->mtx_finish_main, NULL) != 0)
 		return (print_error(TYPE_ERR_MTX_INIT));
 	
 	if (pthread_mutex_init(&d->mtx_message, NULL) != 0)
@@ -54,12 +54,12 @@ void destroy_all_mutex(t_data *d)
 	while (i < d->max_philo)
 	{
 		pthread_mutex_destroy(&d->mtx_fork_list[i]);
-		pthread_mutex_destroy(&d->philo_list[i].mtx_dead);
+		pthread_mutex_destroy(&d->philo_list[i].mtx_philo_dead);
 		pthread_mutex_destroy(&d->philo_list[i].mtx_timestamp);
 		i++;
 	}
 
-	pthread_mutex_destroy(&d->mtx_one_is_dead);
+	pthread_mutex_destroy(&d->mtx_finish_main);
 
 	pthread_mutex_destroy(&d->mtx_message);
 }

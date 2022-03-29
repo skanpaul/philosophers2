@@ -34,3 +34,33 @@ void *philo_activity(void *arg)
 
 	return (arg);
 }
+
+/* ************************************************************************** */
+void *check_life(void *arg)
+{
+	t_data *d;
+	int i;
+
+	d = (t_data *)arg;
+	
+	while (1)
+	{
+	// --------------------------------------------------	
+		i = 0;
+		while (i < d->max_philo)
+		{
+			if(is_this_philo_dead(&d->philo_list[i]))
+			{
+				// pthread_mutex_lock(d.mt)
+				
+				
+				pthread_mutex_unlock(&d->mtx_finish_main);
+				return (arg);
+			}
+			i++;
+		}
+	// --------------------------------------------------
+	}
+	return (arg);
+}
+/* ************************************************************************** */

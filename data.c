@@ -14,7 +14,7 @@ void init_basic_data(t_data *d)
 	d->philo_list = NULL;
 	// d->thread_check_life
     d->mtx_fork_list = NULL;
-	// d->mtx_one_is_dead
+	// d->mtx_finish_main
 }
 
 /* ************************************************************************** */
