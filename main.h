@@ -15,13 +15,15 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <unistd.h>
+# include <sys/time.h>
 /* -------------------- */
 # include "message.h"
 /* ************************************************************************** */
 typedef struct s_data t_data;
 typedef struct s_philo t_philo;
 typedef enum e_error t_error;
-/* -------------------------------------------------------------------------- */
+typedef struct timeval t_timeval;
+/* ************************************************************************** */
 typedef struct s_data
 {
 	int				max_philo;
@@ -48,11 +50,11 @@ typedef struct s_philo
 	int				pos_f_r; // position fork right	
 	bool			dead;
 	// ------------------------------
-	int				ts_fork;
-	int				ts_eat;
-	int				ts_sleep;
-	int				ts_think;
-	int				ts_died;
+	t_timeval		ts_fork;
+	t_timeval		ts_eat;
+	t_timeval		ts_sleep;
+	t_timeval		ts_think;
+	t_timeval		ts_died;
 	// ------------------------------
 	t_data			*d;
 	pthread_t		*th_id;
@@ -106,12 +108,13 @@ void	*check_life(void *arg);
 void	take_forks(t_philo *p);
 void	give_forks_back(t_philo *p);
 /* -------------------------------------------------------- */
-void	print_mutex(t_philo *p, int timestamp, char *msg);
+void	print_mutex(t_philo *p, t_timeval timestamp, char *msg);
 void	print_fork(t_philo *p);
 void	print_eat(t_philo *p);
 void	print_sleep(t_philo *p);
 void	print_think(t_philo *p);
 void	print_died(t_philo *p);
+/* -------------------------------------------------------- */
 
 /* ************************************************************************** */
 #endif

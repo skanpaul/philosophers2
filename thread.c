@@ -5,34 +5,39 @@
 /* ************************************************************************** */
 void *philo_activity(void *arg)
 {
-    // INIT TIMESTAMP OF PHILO
-    
-    // TAKE FORK
+	t_philo *p;
 
-    // EAT
+	p = (t_philo *)arg;
 
-    // WAIT: finis to eat
 
-    // GIVE FORKS BACK
+	// START-LOOP --------------------------------------------------------
 
-    // SLEEP
+		take_forks(p);
+		// is he dead while taking the forks ???
 
-    // WAIT: finis to sleep
+		// EAT & WAIT: finis to eat
 
-    // THINK: when necessary TAKE FORK AND EAT
+		// GIVE FORKS BACK
+
+		// SLEEP & WAIT: finis to sleep
+
+		// THINK: when necessary TAKE FORK AND EAT
+
+	// END-LOOP ---------------------------------------------------------
+
 
 	// struct philo
-		// id_philo
-		// id_thread
-		// mutex mtx_time_stamp
+	// id_philo
+	// id_thread
+	// mutex mtx_time_stamp
 
-    return (arg);
+	return (arg);
 }
 
 /* ************************************************************************** */
 void *check_life(void *arg)
 {
 
-    return (arg);
+	return (arg);
 }
 /* ************************************************************************** */

@@ -37,3 +37,19 @@ void give_forks_back(t_philo *p)
 }
 
 /* ************************************************************************** */
+void eat(t_philo *p)
+{
+	// start to eat
+	gettimeofday(&p->ts_eat, NULL);
+
+
+
+
+	print_eat(p);
+
+	// wait until finis to eat
+
+
+}
+
+/* ************************************************************************** */

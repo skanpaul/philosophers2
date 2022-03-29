@@ -29,17 +29,11 @@ int main(int argc, char **argv)
 	if (start_thread(&d) == ERROR)
 		return (ERROR + clean_game(&d));
 
-
-
-
-
-
-
-
-	// exit if someone dead
 	pthread_mutex_lock(&d.mtx_one_is_dead);
 	pthread_mutex_unlock(&d.mtx_one_is_dead);
 
 	clean_game(&d);
 	return (NO_ERROR);
 }
+
+/* ************************************************************************** */
