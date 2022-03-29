@@ -10,6 +10,9 @@
 # define NO_ERROR		0
 # define ERROR			1
 /* ************************************************************************** */
+# define DEAD			0
+# define ALIVE			1
+/* ************************************************************************** */
 # include <pthread.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -33,7 +36,6 @@ typedef struct s_data
 	int				max_eat;		// OPTIONAL
 	// ------------------------------
 	t_philo			*philo_list;
-	pthread_t		*thread_list;
 	pthread_t		thd_check_life;
 	pthread_mutex_t	*mtx_fork_list;
 	pthread_mutex_t	mtx_one_is_dead;
@@ -46,10 +48,13 @@ typedef struct s_philo
 {
 	int				pos;
 	int				id;
+	pthread_t		th_id;
 	int				pos_f_l; // positon fork left
 	int				pos_f_r; // position fork right	
+	pthread_mutex_t	mtx_dead;
 	bool			dead;
 	// ------------------------------
+	pthread_mutex_t	mtx_timestamp;
 	t_timeval		ts_fork;
 	t_timeval		ts_eat;
 	t_timeval		ts_sleep;
@@ -57,7 +62,6 @@ typedef struct s_philo
 	t_timeval		ts_died;
 	// ------------------------------
 	t_data			*d;
-	pthread_t		*th_id;
 	// ------------------------------
 } t_philo;
 /* ************************************************************************** */
@@ -101,20 +105,29 @@ int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 void	ft_msleep(int millisecond);
 
-/* ********************************< THREAD >******************************** */
+/* *********************< THREAD: philo_activity >*************************** */
 void	*philo_activity(void *arg);
 void	*check_life(void *arg);
 /* -------------------------------------------------------- */
-void	take_forks(t_philo *p);
+int		take_forks_left(t_philo *p);
+int		take_forks_right(t_philo *p);
 void	give_forks_back(t_philo *p);
 /* -------------------------------------------------------- */
 void	print_mutex(t_philo *p, t_timeval timestamp, char *msg);
+void	print_life(t_philo *p);
 void	print_fork(t_philo *p);
 void	print_eat(t_philo *p);
 void	print_sleep(t_philo *p);
 void	print_think(t_philo *p);
 void	print_died(t_philo *p);
 /* -------------------------------------------------------- */
+void	gettimeofday_mutex(t_timeval *tv, t_philo *p);
+/* -------------------------------------------------------- */
+bool	is_someone_dead(t_philo *p);
+
+/* ************************< THREAD: check_life >**************************** */
+bool	is_this_philo_dead(t_philo *p);
+
 
 /* ************************************************************************** */
 #endif

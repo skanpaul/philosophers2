@@ -12,8 +12,12 @@
 #include "main.h"
 
 /* ************************************************************************** */
-
-
+void gettimeofday_mutex(t_timeval *tv, t_philo *p)
+{
+    pthread_mutex_lock(&p->mtx_timestamp);
+    gettimeofday(tv, NULL);
+    pthread_mutex_unlock(&p->mtx_timestamp);
+}
 /* ************************************************************************** */
 // void set_all_timestamp_from_start_eating(t_philo *p)
 // {

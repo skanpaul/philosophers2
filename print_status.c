@@ -3,6 +3,12 @@
 #include "main.h"
 
 /* ************************************************************************** */
+void print_life(t_philo *p)
+{
+	print_mutex(p, p->ts_eat, MSG_LIFE);
+}
+
+/* ************************************************************************** */
 void print_fork(t_philo *p)
 {
 	print_mutex(p, p->ts_fork, MSG_FORK);
@@ -36,7 +42,7 @@ void print_died(t_philo *p)
 void print_mutex(t_philo *p, t_timeval timestamp, char *msg)
 {
 	pthread_mutex_lock(&p->d->mtx_message);
-	printf("%ld %d %s", timestamp.tv_usec / 1000, p->id, msg);
+	printf("%ld[ms] %d %s", timestamp.tv_usec / 1000, p->id, msg);
 	pthread_mutex_unlock(&p->d->mtx_message);
 }
 

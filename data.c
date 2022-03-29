@@ -12,7 +12,6 @@ void init_basic_data(t_data *d)
 	d->max_eat = 0;
     // ------------------------   
 	d->philo_list = NULL;
-    d->thread_list = NULL;
 	// d->thread_check_life
     d->mtx_fork_list = NULL;
 	// d->mtx_one_is_dead

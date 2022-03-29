@@ -14,10 +14,10 @@ void init_philo_struct(t_philo *p, t_data *d)
 	while (i < d->max_philo)
 	{
 		p[i].d = d;
-		p[i].th_id = &d->thread_list[i];
 		//-----------------------------------------
 		p[i].pos = i;
 		p[i].id = i + 1;
+		p[i].th_id = 0;
 		p[i].pos_f_l = i;							// init position fork LEFT
 		p[i].pos_f_r = give_pos_fork_right(p, i);	// init position fork RIGHT
 		p[i].dead = false;

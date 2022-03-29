@@ -30,10 +30,18 @@ int main(int argc, char **argv)
 		return (ERROR + clean_game(&d));
 
 	pthread_mutex_lock(&d.mtx_one_is_dead);
-	pthread_mutex_unlock(&d.mtx_one_is_dead);
+
 
 	clean_game(&d);
 	return (NO_ERROR);
 }
 
 /* ************************************************************************** */
+
+
+	// t_timeval actual;
+	// while (1)
+	// {
+	// 	gettimeofday(&actual, NULL);
+	// 	printf("[%ld][%ld]\n", actual.tv_sec, actual.tv_usec);
+	// }
