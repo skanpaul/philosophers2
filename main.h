@@ -107,7 +107,6 @@ void	ft_msleep(int millisecond);
 
 /* *********************< THREAD: philo_activity >*************************** */
 void	*philo_activity(void *arg);
-void	*check_life(void *arg);
 /* -------------------------------------------------------- */
 int		take_forks_left(t_philo *p);
 int		take_forks_right(t_philo *p);
@@ -126,6 +125,8 @@ void	gettimeofday_mutex(t_timeval *tv, t_philo *p);
 bool	is_someone_dead(t_philo *p);
 
 /* ************************< THREAD: check_life >**************************** */
+void	*check_life(void *arg);
+/* -------------------------------------------------------- */
 bool	is_this_philo_dead(t_philo *p);
 
 
