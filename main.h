@@ -35,6 +35,9 @@ typedef struct s_data
 	int				time_sleep; 	// milliseconde
 	int				max_eat;		// OPTIONAL
 	// ------------------------------
+	pthread_mutex_t	mtx_someone_dead;
+	bool			someone_dead;
+	// ------------------------------
 	t_philo			*philo_list;
 	pthread_t		thd_check_life;
 	pthread_mutex_t	*mtx_fork_list;
@@ -52,6 +55,7 @@ typedef struct s_philo
 	pthread_t		th_id;
 	int				pos_f_l; // positon fork left
 	int				pos_f_r; // position fork right	
+	// ------------------------------
 	pthread_mutex_t	mtx_philo_dead;
 	bool			philo_dead;
 	// ------------------------------

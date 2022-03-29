@@ -35,6 +35,8 @@ int init_all_mutex(t_data *d)
 			return (print_error(TYPE_ERR_MTX_INIT));
 		i++;
 	}
+	if (pthread_mutex_init(&d->mtx_someone_dead, NULL) != 0)
+		return (print_error(TYPE_ERR_MTX_INIT));
 
 	if (pthread_mutex_init(&d->mtx_finish_main, NULL) != 0)
 		return (print_error(TYPE_ERR_MTX_INIT));
@@ -59,8 +61,8 @@ void destroy_all_mutex(t_data *d)
 		i++;
 	}
 
+	pthread_mutex_destroy(&d->mtx_someone_dead);
 	pthread_mutex_destroy(&d->mtx_finish_main);
-
 	pthread_mutex_destroy(&d->mtx_message);
 }
 

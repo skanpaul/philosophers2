@@ -10,6 +10,8 @@ void init_basic_data(t_data *d)
 	d->time_eat = 0;
 	d->time_sleep = 0;
 	d->max_eat = 0;
+    // ------------------------
+	d->someone_dead = false;   
     // ------------------------   
 	d->philo_list = NULL;
 	// d->thread_check_life
