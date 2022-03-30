@@ -27,11 +27,20 @@ void init_philo_struct(t_philo *philo_list, t_data *d)
 		p->mtx_fork_r = &p->d->mtx_fork_list[p->pos_f_r];
 		p->philo_dead = false;
 		//-----------------------------------------
+		p->tv_born = (t_timeval){0,0};
 		p->tv_fork = (t_timeval){0,0};
 		p->tv_eat = (t_timeval){0,0};
 		p->tv_sleep = (t_timeval){0,0};
 		p->tv_think = (t_timeval){0,0};
 		p->tv_died = (t_timeval){0,0};
+		//-----------------------------------------
+		p->stamp_start = 0;
+		p->stamp_born = 0;
+		p->stamp_fork = 0;
+		p->stamp_eat = 0;
+		p->stamp_sleep = 0;
+		p->stamp_think = 0;
+		p->stamp_died = 0;
 		//-----------------------------------------
 		i++;
 	}
