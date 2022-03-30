@@ -120,9 +120,11 @@ void	add_ms_to_timeval(int add_ms, t_timeval *ts);
 /* ************************************************************************** */
 void	*philo_activity(void *arg);
 /* -------------------------------------------------------- */
-int		take_forks_left(t_philo *p);
-int		take_forks_right(t_philo *p);
-void	give_forks_back(t_philo *p);
+int		philo_take_forks_left(t_philo *p);
+int		philo_take_forks_right(t_philo *p);
+void	philo_eat(t_philo *p);
+void	philo_give_forks_back(t_philo *p);
+
 /* -------------------------------------------------------- */
 void	print_mutex(t_philo *p, t_timeval timestamp, char *msg);
 void	print_life(t_philo *p);

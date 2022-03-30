@@ -3,7 +3,7 @@
 #include "main.h"
 
 /* ************************************************************************** */
-int take_forks_left(t_philo *p)
+int philo_take_forks_left(t_philo *p)
 {	
 	pthread_mutex_t *fork_list;
 	pthread_mutex_t *fork_left;
@@ -25,7 +25,7 @@ int take_forks_left(t_philo *p)
 }
 
 /* ************************************************************************** */
-int take_forks_right(t_philo *p)
+int philo_take_forks_right(t_philo *p)
 {
 	pthread_mutex_t *fork_list;
 	pthread_mutex_t *fork_right;
@@ -47,7 +47,7 @@ int take_forks_right(t_philo *p)
 }
 
 /* ************************************************************************** */
-void give_forks_back(t_philo *p)
+void philo_give_forks_back(t_philo *p)
 {
 	pthread_mutex_t *fork_list;
 	pthread_mutex_t *fork_left;
@@ -64,7 +64,7 @@ void give_forks_back(t_philo *p)
 
 
 /* ************************************************************************** */
-void eat(t_philo *p)
+void philo_eat(t_philo *p)
 {
 	// start to eat
 	set_all_timeval_mutex(p);	
