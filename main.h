@@ -55,6 +55,8 @@ typedef struct s_philo
 	pthread_t		th_id;
 	int				pos_f_l; // positon fork left
 	int				pos_f_r; // position fork right	
+	pthread_mutex_t	*mtx_fork_l;
+	pthread_mutex_t	*mtx_fork_r;
 	// ------------------------------
 	bool			philo_dead;
 	// ------------------------------
