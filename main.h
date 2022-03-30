@@ -62,13 +62,20 @@ typedef struct s_philo
 	// ------------------------------
 	pthread_mutex_t	mtx_timeval;
 	t_timeval		tv_start;
+	t_timeval		tv_born;
 	t_timeval		tv_fork;
 	t_timeval		tv_eat;
 	t_timeval		tv_sleep;
 	t_timeval		tv_think;
 	t_timeval		tv_died;
 	// ------------------------------
-	int				stamp_start;
+	long int		stamp_start_game;
+	long int		stamp_born;
+	long int		stamp_fork;
+	long int		stamp_eat;
+	long int		stamp_sleep;
+	long int		stamp_think;
+	long int		stamp_died;
 	// ------------------------------
 	t_data			*d;
 	// ------------------------------
