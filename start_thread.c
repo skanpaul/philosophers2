@@ -18,6 +18,7 @@ int start_thread(t_data *d)
 	{
 		p = &p_list[i];
 		p[i].tv_start = start;
+		// p[i].stamp_start 
 		// ------------------------------------------------------------------
 		if (pthread_create(&p->th_id, NULL, &philo_activity, (void *)p) != 0)
 			return (print_error(TYPE_ERR_THD_CREATE));
