@@ -47,6 +47,22 @@ int philo_take_forks_right(t_philo *p)
 }
 
 /* ************************************************************************** */
+void philo_eat(t_philo *p)
+{
+	// start to eat
+	set_all_timeval_mutex(p);	
+
+
+
+
+	print_eat(p);
+
+	// wait until finis to eat
+
+
+}
+
+/* ************************************************************************** */
 void philo_give_forks_back(t_philo *p)
 {
 	pthread_mutex_t *fork_list;
@@ -62,20 +78,4 @@ void philo_give_forks_back(t_philo *p)
 	pthread_mutex_unlock(fork_right);
 }
 
-
-/* ************************************************************************** */
-void philo_eat(t_philo *p)
-{
-	// start to eat
-	set_all_timeval_mutex(p);	
-
-
-
-
-	print_eat(p);
-
-	// wait until finis to eat
-
-
-}
 /* ************************************************************************** */

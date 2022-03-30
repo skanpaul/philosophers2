@@ -12,7 +12,7 @@
             // "program": "${fileDirname}/${fileBasenameNoExtension}",
             "program": "${fileDirname}/philo",
             "args": [
-                "1",    // max_philosphers
+                "2",    // max_philosphers
                 "10",   // time_to_die
                 "1",    // time_to_eat
                 "1",    // time_to_sleep

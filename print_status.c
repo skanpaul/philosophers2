@@ -39,10 +39,10 @@ void print_died(t_philo *p)
 }
 
 /* ************************************************************************** */
-void print_mutex(t_philo *p, t_timeval timestamp, char *msg)
+void print_mutex(t_philo *p, t_timeval *timeval, char *msg)
 {
 	pthread_mutex_lock(&p->d->mtx_message);
-	printf("%ld[ms] %d %s", timestamp.tv_usec / 1000, p->id, msg);
+	printf("%16ld[ms] %d %s", timeval->tv_usec / 1000, p->id, msg);
 	pthread_mutex_unlock(&p->d->mtx_message);
 }
 

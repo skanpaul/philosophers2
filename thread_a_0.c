@@ -15,10 +15,10 @@ void *philo_activity(void *arg)
 	while (1)
 	{
 		// TAKE FORKS LEFT
-		if (take_forks_left(p) == DEAD)
+		if (philo_take_forks_left(p) == DEAD)
 			break;
 		// TAKE FORKS RIGHT
-		if (take_forks_right(p) == DEAD)
+		if (philo_take_forks_right(p) == DEAD)
 			break;
 
 		// EAT & WAIT: finis to eat
