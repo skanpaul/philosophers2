@@ -9,7 +9,7 @@ void *philo_activity(void *arg)
 
 	p = (t_philo *)arg;	
 	set_all_timeval_mutex(p);
-	print_life(p);
+	print_born(p);
 
 	// START-LOOP --------------------------------------------------------
 	while (1)

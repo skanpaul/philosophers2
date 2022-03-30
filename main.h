@@ -135,7 +135,7 @@ void	philo_give_forks_back(t_philo *p);
 
 /* -------------------------------------------------------- */
 void	print_mutex(t_philo *p, t_timeval *timeval, char *msg);
-void	print_life(t_philo *p);
+void	print_born(t_philo *p);
 void	print_fork(t_philo *p);
 void	print_eat(t_philo *p);
 void	print_sleep(t_philo *p);

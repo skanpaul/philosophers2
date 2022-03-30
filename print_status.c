@@ -3,7 +3,7 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void print_life(t_philo *p)
+void print_born(t_philo *p)
 {
 	print_mutex(p, &p->tv_eat, MSG_LIFE);
 }
