@@ -39,9 +39,6 @@ int main(int argc, char **argv)
 
 /* ************************************************************************** */
 
-
-	
-
 	// t_timeval new;
 	// t_timeval old;
 	// gettimeofday(&old, NULL);
@@ -52,3 +49,13 @@ int main(int argc, char **argv)
 	// 	printf("diff_ms: %d\n", get_ms_diff(&new, &old));
 	// 	old = new;
 	// }
+
+	
+
+	
+	// t_timeval new;
+	// int time_ms = 23051;
+
+	// new.tv_sec = 12;
+	// new.tv_usec = 950000;
+	// add_ms_to_timeval(time_ms, &new);

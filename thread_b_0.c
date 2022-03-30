@@ -45,8 +45,8 @@ bool is_this_philo_dead(t_philo *p)
 
 	if (diff_ms >= p->d->time_die)
 	{
-		p->ts_died = now;
-		// p->ts_died = now;
+		p->ts_died = p->ts_eat;
+		add_ms_to_timeval(p->d->time_die, &p->ts_died);
 		
 		pthread_mutex_lock(&p->d->mtx_someone_dead);
 		p->philo_dead = true;
