@@ -19,6 +19,32 @@ void gettimeofday_mutex(t_timeval *tv, t_philo *p)
     pthread_mutex_unlock(&p->mtx_timestamp);
 }
 /* ************************************************************************** */
+int get_ms_diff(t_timeval *now, t_timeval *ts)
+{
+    int diff_s;
+    int diff_us;
+    int diff_ms;
+
+    diff_s = 0;
+    diff_ms = 0;
+    diff_us = 0;
+
+    if (now->tv_sec == ts->tv_sec)
+    {
+		diff_us = now->tv_usec - ts->tv_usec;
+        diff_ms = diff_us / 1000;
+    }
+	else
+    {
+        diff_s = now->tv_sec - ts->tv_sec;
+		diff_us = (1000000 - ts->tv_usec) + now->tv_usec;        
+        diff_ms = diff_s * 1000 + diff_us / 1000; 
+    }
+    return (diff_ms);
+}
+
+
+/* ************************************************************************** */
 // void set_all_timestamp_from_start_eating(t_philo *p)
 // {
 // 	int timestamp;

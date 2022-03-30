@@ -40,9 +40,15 @@ int main(int argc, char **argv)
 /* ************************************************************************** */
 
 
-	// t_timeval actual;
+	
+
+	// t_timeval new;
+	// t_timeval old;
+	// gettimeofday(&old, NULL);
 	// while (1)
 	// {
-	// 	gettimeofday(&actual, NULL);
-	// 	printf("[%ld][%ld]\n", actual.tv_sec, actual.tv_usec);
+	// 	gettimeofday(&new, NULL);
+	// 	printf("[%ld][%ld]\n", new.tv_sec, new.tv_usec);
+	// 	printf("diff_ms: %d\n", get_ms_diff(&new, &old));
+	// 	old = new;
 	// }

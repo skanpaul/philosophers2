@@ -56,7 +56,6 @@ typedef struct s_philo
 	int				pos_f_l; // positon fork left
 	int				pos_f_r; // position fork right	
 	// ------------------------------
-	pthread_mutex_t	mtx_philo_dead;
 	bool			philo_dead;
 	// ------------------------------
 	pthread_mutex_t	mtx_timestamp;
@@ -128,6 +127,7 @@ void	print_think(t_philo *p);
 void	print_died(t_philo *p);
 /* -------------------------------------------------------- */
 void	gettimeofday_mutex(t_timeval *tv, t_philo *p);
+int		get_ms_diff(t_timeval *now, t_timeval *ts);
 /* -------------------------------------------------------- */
 bool	is_someone_dead(t_philo *p);
 

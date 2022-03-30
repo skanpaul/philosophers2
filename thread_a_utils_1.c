@@ -15,12 +15,12 @@ int take_forks_left(t_philo *p)
 
 	pthread_mutex_lock(fork_left);	
 
-	pthread_mutex_lock(&p->mtx_philo_dead);
+	pthread_mutex_lock(&p->d->mtx_someone_dead);
 	if (p->philo_dead = true)
 		life_status = DEAD;
 	else
 		print_fork(p);
-	pthread_mutex_unlock(&p->mtx_philo_dead);
+	pthread_mutex_unlock(&p->d->mtx_someone_dead);
 
 	return (life_status);
 }
@@ -37,12 +37,12 @@ int take_forks_right(t_philo *p)
 
 	pthread_mutex_lock(fork_right);	
 
-	pthread_mutex_lock(&p->mtx_philo_dead);
+	pthread_mutex_lock(&p->d->mtx_someone_dead);
 	if (p->philo_dead = true)
 		life_status = DEAD;
 	else
 		print_fork(p);
-	pthread_mutex_unlock(&p->mtx_philo_dead);
+	pthread_mutex_unlock(&p->d->mtx_someone_dead);
 
 	return (ALIVE);
 }
