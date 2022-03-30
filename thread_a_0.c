@@ -33,7 +33,9 @@ void *philo_activity(void *arg)
 			break;
 
 		// THINK: when necessary TAKE FORK AND EAT
-		
+		if (philo_start_to_think(p) == DEAD)
+			break;
+
 	}
 	// END-LOOP ---------------------------------------------------------
 
