@@ -99,3 +99,16 @@ int philo_start_to_sleep(t_philo *p)
 }
 
 /* ************************************************************************** */
+// int philo_start_to_think(t_philo *p)
+// {
+// 	int time_to_think;
+	
+// 	if (is_someone_dead_mutex(p->d))
+// 		return (DEAD);
+// 	print_think (p);
+
+
+// 	return (ALIVE);
+// }
+
+/* ************************************************************************** */

@@ -33,6 +33,7 @@ void *philo_activity(void *arg)
 			break;
 
 		// THINK: when necessary TAKE FORK AND EAT
+		
 	}
 	// END-LOOP ---------------------------------------------------------
 

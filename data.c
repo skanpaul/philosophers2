@@ -9,6 +9,7 @@ void init_basic_data(t_data *d)
 	d->time_die = 0;
 	d->time_eat = 0;
 	d->time_sleep = 0;
+	d->time_think = 0;
 	d->max_eat = 0;
     // ------------------------
 	d->someone_dead = false;   
@@ -35,6 +36,11 @@ int save_game_data(int argc, char **argv, t_data *d)
 	d->time_die = ft_atoi(argv[2]);
 	d->time_eat = ft_atoi(argv[3]);
 	d->time_sleep = ft_atoi(argv[4]);
+
+	d->time_think = d->time_die - d->time_eat - d->time_sleep;
+	if (d->time_think < 0)
+		d->time_think = 0;
+
 	if (argc == 6)
 		d->max_eat = ft_atoi(argv[5]);
 

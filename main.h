@@ -33,6 +33,7 @@ typedef struct s_data
 	int				time_die;	 	// milliseconde
 	int				time_eat;	 	// milliseconde
 	int				time_sleep; 	// milliseconde
+	int				time_think; 	// milliseconde
 	int				max_eat;		// OPTIONAL
 	// ------------------------------
 	pthread_mutex_t	mtx_someone_dead;
