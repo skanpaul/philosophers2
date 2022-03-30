@@ -69,12 +69,16 @@ int	ft_isdigit(int c)
 	return (0);
 }
 /* ************************************************************************** */
-void ft_msleep(int millisecond)
+void ft_msleep(int millisecond, int percent)
 {
+	int us;
+	
 	if (millisecond < 0)
 		millisecond = 0;
 
-	usleep(millisecond * 1000);
+	us = millisecond * 1000 * percent / 100;
+
+	usleep(us);
 }
 /* ************************************************************************** */
 

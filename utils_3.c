@@ -22,7 +22,7 @@ int start_thread(t_data *d)
 		if (pthread_create(&p->th_id, NULL, &philo_activity, (void *)p) != 0)
 			return (print_error(TYPE_ERR_THD_CREATE));
 		// ------------------------------------------------------------------
-		ft_msleep(1);	
+		ft_msleep(1, 10);	
 		// ------------------------------------------------------------------
 		// DETACH THREAD IF NECESSARY
 		// ------------------------------------------------------------------

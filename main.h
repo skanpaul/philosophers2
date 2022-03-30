@@ -108,7 +108,7 @@ int		print_error(t_error type_error);
 bool	is_countable(char *str);
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
-void	ft_msleep(int millisecond);
+void	ft_msleep(int millisecond, int percent);
 /* ************************************************************************** */
 void	set_1_timeval_mutex(t_timeval *timestamp, t_philo *p);
 void	set_all_timeval_mutex(t_philo *p);
