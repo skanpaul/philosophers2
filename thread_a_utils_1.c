@@ -5,13 +5,14 @@
 /* ************************************************************************** */
 int philo_take_forks_left(t_philo *p)
 {	
-	pthread_mutex_t *fork_list;
-	pthread_mutex_t *fork_left;
+	// pthread_mutex_t *fork_list;
+	// pthread_mutex_t *fork_left;
 
-	fork_list = p->d->mtx_fork_list;
-	fork_left = &fork_list[p->pos_f_l];
+	// fork_list = p->d->mtx_fork_list;
+	// fork_left = &fork_list[p->pos_f_l];
+	// pthread_mutex_lock(fork_left);	
 
-	pthread_mutex_lock(fork_left);	
+	pthread_mutex_lock(p->mtx_fork_l);	
 
 	if (is_someone_dead_mutex(p->d))
 		return (DEAD);
@@ -27,13 +28,14 @@ int philo_take_forks_left(t_philo *p)
 /* ************************************************************************** */
 int philo_take_forks_right(t_philo *p)
 {
-	pthread_mutex_t *fork_list;
-	pthread_mutex_t *fork_right;
+	// pthread_mutex_t *fork_list;
+	// pthread_mutex_t *fork_right;
 
-	fork_list = p->d->mtx_fork_list;
-	fork_right = &fork_list[p->pos_f_r];
+	// fork_list = p->d->mtx_fork_list;
+	// fork_right = &fork_list[p->pos_f_r];
+	// pthread_mutex_lock(fork_right);	
 
-	pthread_mutex_lock(fork_right);	
+	pthread_mutex_lock(p->mtx_fork_r);	
 
 	if (is_someone_dead_mutex(p->d))
 		return (DEAD);
@@ -65,17 +67,19 @@ void philo_eat(t_philo *p)
 /* ************************************************************************** */
 void philo_give_forks_back(t_philo *p)
 {
-	pthread_mutex_t *fork_list;
-	pthread_mutex_t *fork_left;
-	pthread_mutex_t *fork_right;
+	// pthread_mutex_t *fork_list;
+	// pthread_mutex_t *fork_left;
+	// pthread_mutex_t *fork_right;
 
-	fork_list = p->d->mtx_fork_list;
+	// fork_list = p->d->mtx_fork_list;
 
-	fork_left = &fork_list[p->pos_f_l];
-	fork_right = &fork_list[p->pos_f_r];
+	// fork_left = &fork_list[p->pos_f_l];
+	// fork_right = &fork_list[p->pos_f_r];
 
-	pthread_mutex_unlock(fork_left);
-	pthread_mutex_unlock(fork_right);
+	pthread_mutex_unlock(p->mtx_fork_r);
+	pthread_mutex_unlock(p->mtx_fork_l);
+	// pthread_mutex_unlock(fork_left);
+	// pthread_mutex_unlock(fork_right);
 }
 
 /* ************************************************************************** */
