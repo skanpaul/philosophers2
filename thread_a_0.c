@@ -22,6 +22,8 @@ void *philo_activity(void *arg)
 			break;
 
 		// EAT & WAIT: finis to eat
+		if (philo_eat(p) == DEAD)
+			break;
 
 		// GIVE FORKS BACK
 

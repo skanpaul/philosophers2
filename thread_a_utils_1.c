@@ -35,19 +35,32 @@ int philo_take_forks_right(t_philo *p)
 }
 
 /* ************************************************************************** */
-void philo_eat(t_philo *p)
+int philo_eat(t_philo *p)
 {
-	// start to eat
+	int time_to_eat;
+
 	set_all_timeval_mutex(p);	
 
+	pthread_mutex_lock(&p->mtx_timeval);
+	time_to_eat = p->d->time_eat;
+	pthread_mutex_unlock(&p->mtx_timeval);	
 
 
-
+	if (is_someone_dead_mutex(p->d))
+		return (DEAD);
 	print_eat(p);
+	
+	ft_msleep(time_to_eat, 80);
 
-	// wait until finis to eat
+	while(!is_activity_finished(&p->tv_sleep, p))
+	{
+		if (is_someone_dead_mutex(p->d))
+		return (DEAD);
 
+		ft_msleep(time_to_eat, 1);
+	}
 
+	return (ALIVE);
 }
 
 /* ************************************************************************** */
