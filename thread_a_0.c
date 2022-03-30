@@ -8,7 +8,7 @@ void *philo_activity(void *arg)
 	t_philo *p;
 
 	p = (t_philo *)arg;	
-	gettimeofday_mutex(&p->ts_eat, p);
+	set_time_mutex(p);
 	print_life(p);
 
 	// START-LOOP --------------------------------------------------------

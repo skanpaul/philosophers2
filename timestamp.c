@@ -12,10 +12,16 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void gettimeofday_mutex(t_timeval *tv, t_philo *p)
+void set_time_mutex(t_philo *p)
 {
+	t_timeval now;
+
 	pthread_mutex_lock(&p->mtx_timestamp);
-	gettimeofday(tv, NULL);
+	gettimeofday(&now, NULL);
+	p->ts_eat = now;
+	add_ms_to_timeval(p->d->time_eat, &p->ts_sleep);
+	add_ms_to_timeval(p->d->time_eat + p->d->time_sleep, &p->ts_think);
+	add_ms_to_timeval(p->d->time_die, &p->ts_died);
 	pthread_mutex_unlock(&p->mtx_timestamp);
 }
 
@@ -63,17 +69,5 @@ void add_ms_to_timeval(int add_ms, t_timeval *ts)
 	ts->tv_sec += add_s;
 	ts->tv_usec = add_us;
 }
-
-/* ************************************************************************** */
-// void set_all_timestamp_from_start_eating(t_philo *p)
-// {
-// 	int timestamp;
-
-// 	timestamp = get_timestamp();
-// 	p->stp_eat = timestamp;
-// 	p->stp_sleep = p->stp_eat + p->d->time_eat;
-// 	p->stp_think = p->stp_sleep + p->d->time_sleep;
-// 	p->stp_died = p->stp_eat + p->d->time_die;
-// }
 
 /* ************************************************************************** */

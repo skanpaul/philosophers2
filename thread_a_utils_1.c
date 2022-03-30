@@ -63,13 +63,12 @@ void give_forks_back(t_philo *p)
 	pthread_mutex_unlock(fork_right);
 }
 
+
 /* ************************************************************************** */
 void eat(t_philo *p)
 {
 	// start to eat
-	
-
-	gettimeofday_mutex(&p->ts_eat, p);	
+	set_time_mutex(p);	
 
 
 
@@ -80,5 +79,4 @@ void eat(t_philo *p)
 
 
 }
-
 /* ************************************************************************** */

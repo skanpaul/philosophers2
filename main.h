@@ -126,9 +126,10 @@ void	print_sleep(t_philo *p);
 void	print_think(t_philo *p);
 void	print_died(t_philo *p);
 /* -------------------------------------------------------- */
-void	gettimeofday_mutex(t_timeval *tv, t_philo *p);
+void	set_time_mutex(t_philo *p);
 int		get_ms_diff(t_timeval *now, t_timeval *ts);
 void	add_ms_to_timeval(int add_ms, t_timeval *ts);
+
 /* ************************************************************************** */
 /* ************************< THREAD: check_life >**************************** */
 /* ************************************************************************** */
