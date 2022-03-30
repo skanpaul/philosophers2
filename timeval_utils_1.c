@@ -15,10 +15,12 @@
 void set_all_timeval_mutex(t_philo *p)
 {
 	t_timeval now;
+	gettimeofday(&now, NULL);
 
 	pthread_mutex_lock(&p->mtx_timeval);
-	gettimeofday(&now, NULL);
 	p->tv_eat = now;
+	p->tv_sleep = now;
+	p->tv_think = now;
 	add_ms_to_timeval(p->d->time_eat, &p->tv_sleep);
 	add_ms_to_timeval(p->d->time_eat + p->d->time_sleep, &p->tv_think);
 	add_ms_to_timeval(p->d->time_die, &p->tv_died);
