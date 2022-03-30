@@ -3,7 +3,7 @@
 #include "main.h"
 
 /* ************************************************************************** */
-int convert_to_timestamp(t_timeval *tv, t_philo *p)
+int get_timestamp(t_timeval *tv, t_philo *p)
 {
 	int64_t tv_ms;
 	int64_t start_ms;
