@@ -3,7 +3,7 @@
 #include "main.h"
 
 /* ************************************************************************** */
-int get_timestamp(t_timeval *tv, t_philo *p)
+long int get_timestamp(t_timeval *tv, t_philo *p)
 {
 	int64_t tv_ms;
 	int64_t start_ms;
@@ -16,7 +16,7 @@ int get_timestamp(t_timeval *tv, t_philo *p)
 
 	result_ms = tv_ms - start_ms;
 
-	return ((int)result_ms);
+	return ((long int)result_ms);
 }
 
 /* ************************************************************************** */

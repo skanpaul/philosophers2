@@ -129,7 +129,7 @@ void	add_ms_to_timeval(int add_ms, t_timeval *ts);
 bool	is_timeval_greater_or_equal_to(t_timeval *tv_a, t_timeval *tv_b);
 bool	is_activity_finished(t_timeval *tv_end, t_philo *p);
 /* -------------------------------------------------------- */
-int		get_timestamp(t_timeval *tv, t_philo *p);
+long int get_timestamp(t_timeval *tv, t_philo *p);
 
 /* ************************************************************************** */
 /* *********************< THREAD: philo_activity >*************************** */
