@@ -53,6 +53,8 @@ void philo_eat(t_philo *p)
 /* ************************************************************************** */
 void philo_give_forks_back(t_philo *p)
 {
+	// ATTENTION: PEUT-ETRE INVERSER FOURCHETTE
+	
 	pthread_mutex_unlock(p->mtx_fork_r);
 	pthread_mutex_unlock(p->mtx_fork_l);
 }

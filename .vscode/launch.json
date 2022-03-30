@@ -12,11 +12,16 @@
             // "program": "${fileDirname}/${fileBasenameNoExtension}",
             "program": "${fileDirname}/philo",
             "args": [
-                "1",    // max_philosphers
-                "10",   // time_to_die
-                "1",    // time_to_eat
-                "1",    // time_to_sleep
+                "4",       // max_philosphers
+                "10000",   // time_to_die
+                "1500",    // time_to_eat
+                "2000",    // time_to_sleep
                 "12"    // max_eat
+                // "4",    // max_philosphers
+                // "10000",   // time_to_die
+                // "1500",    // time_to_eat
+                // "2000",    // time_to_sleep
+                // "12"    // max_eat
             ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
