@@ -11,6 +11,7 @@ void init_basic_data(t_data *d)
 	d->time_sleep = 0;
 	d->time_think = 0;
 	d->max_eat = 0;
+	d->operation = 0;
     // ------------------------
 	d->someone_dead = false;   
     // ------------------------   

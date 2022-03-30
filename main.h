@@ -35,6 +35,7 @@ typedef struct s_data
 	int				time_sleep; 	// milliseconde
 	int				time_think; 	// milliseconde
 	int				max_eat;		// OPTIONAL
+	int				operation;
 	// ------------------------------
 	pthread_mutex_t	mtx_someone_dead;
 	bool			someone_dead;
