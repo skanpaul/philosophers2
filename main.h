@@ -108,6 +108,11 @@ bool	is_countable(char *str);
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 void	ft_msleep(int millisecond);
+/* ************************************************************************** */
+void	set_1_timestamp_mutex(t_timeval *timestamp, t_philo *p);
+void	set_all_timestamp_mutex(t_philo *p);
+int		get_ms_diff(t_timeval *now, t_timeval *ts);
+void	add_ms_to_timeval(int add_ms, t_timeval *ts);
 
 /* ************************************************************************** */
 /* *********************< THREAD: philo_activity >*************************** */
@@ -125,10 +130,6 @@ void	print_eat(t_philo *p);
 void	print_sleep(t_philo *p);
 void	print_think(t_philo *p);
 void	print_died(t_philo *p);
-/* -------------------------------------------------------- */
-void	set_time_mutex(t_philo *p);
-int		get_ms_diff(t_timeval *now, t_timeval *ts);
-void	add_ms_to_timeval(int add_ms, t_timeval *ts);
 
 /* ************************************************************************** */
 /* ************************< THREAD: check_life >**************************** */
@@ -136,7 +137,7 @@ void	add_ms_to_timeval(int add_ms, t_timeval *ts);
 void	*check_life(void *arg);
 /* -------------------------------------------------------- */
 bool	is_this_philo_dead(t_philo *p);
-
+bool	is_someone_dead_mutex(t_data *d);
 
 /* ************************************************************************** */
 #endif

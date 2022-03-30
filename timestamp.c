@@ -12,7 +12,7 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void set_time_mutex(t_philo *p)
+void set_all_timestamp_mutex(t_philo *p)
 {
 	t_timeval now;
 
@@ -22,6 +22,14 @@ void set_time_mutex(t_philo *p)
 	add_ms_to_timeval(p->d->time_eat, &p->ts_sleep);
 	add_ms_to_timeval(p->d->time_eat + p->d->time_sleep, &p->ts_think);
 	add_ms_to_timeval(p->d->time_die, &p->ts_died);
+	pthread_mutex_unlock(&p->mtx_timestamp);
+}
+
+/* ************************************************************************** */
+void set_1_timestamp_mutex(t_timeval *timestamp, t_philo *p)
+{
+	pthread_mutex_lock(&p->mtx_timestamp);
+	gettimeofday(timestamp, NULL);
 	pthread_mutex_unlock(&p->mtx_timestamp);
 }
 

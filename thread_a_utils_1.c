@@ -4,31 +4,29 @@
 
 /* ************************************************************************** */
 int take_forks_left(t_philo *p)
-{
-	int life_status;	
+{	
 	pthread_mutex_t *fork_list;
 	pthread_mutex_t *fork_left;
 
-	life_status = ALIVE;
 	fork_list = p->d->mtx_fork_list;
 	fork_left = &fork_list[p->pos_f_l];
 
 	pthread_mutex_lock(fork_left);	
 
-	pthread_mutex_lock(&p->d->mtx_someone_dead);
-	if (p->philo_dead = true)
-		life_status = DEAD;
+	if (is_someone_dead_mutex(p->d))
+		return (DEAD);
 	else
+	{
+		set_1_timestamp_mutex(&p->ts_fork, p);
 		print_fork(p);
-	pthread_mutex_unlock(&p->d->mtx_someone_dead);
+	}
 
-	return (life_status);
+	return (ALIVE);
 }
 
 /* ************************************************************************** */
 int take_forks_right(t_philo *p)
 {
-	int life_status;
 	pthread_mutex_t *fork_list;
 	pthread_mutex_t *fork_right;
 
@@ -37,12 +35,13 @@ int take_forks_right(t_philo *p)
 
 	pthread_mutex_lock(fork_right);	
 
-	pthread_mutex_lock(&p->d->mtx_someone_dead);
-	if (p->philo_dead = true)
-		life_status = DEAD;
+	if (is_someone_dead_mutex(p->d))
+		return (DEAD);
 	else
+	{
+		set_1_timestamp_mutex(&p->ts_fork, p);
 		print_fork(p);
-	pthread_mutex_unlock(&p->d->mtx_someone_dead);
+	}
 
 	return (ALIVE);
 }
@@ -68,7 +67,7 @@ void give_forks_back(t_philo *p)
 void eat(t_philo *p)
 {
 	// start to eat
-	set_time_mutex(p);	
+	set_all_timestamp_mutex(p);	
 
 
 
