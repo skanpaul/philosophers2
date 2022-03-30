@@ -22,11 +22,11 @@ void init_philo_struct(t_philo *p, t_data *d)
 		p[i].pos_f_r = give_pos_fork_right(p, i);	// init position fork RIGHT
 		p[i].philo_dead = false;
 		//-----------------------------------------
-		p[i].ts_fork = (t_timeval){0,0};
-		p[i].ts_eat = (t_timeval){0,0};
-		p[i].ts_sleep = (t_timeval){0,0};
-		p[i].ts_think = (t_timeval){0,0};
-		p[i].ts_died = (t_timeval){0,0};
+		p[i].tv_fork = (t_timeval){0,0};
+		p[i].tv_eat = (t_timeval){0,0};
+		p[i].tv_sleep = (t_timeval){0,0};
+		p[i].tv_think = (t_timeval){0,0};
+		p[i].tv_died = (t_timeval){0,0};
 		//-----------------------------------------
 		i++;
 	}

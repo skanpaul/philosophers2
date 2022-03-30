@@ -17,7 +17,7 @@ int take_forks_left(t_philo *p)
 		return (DEAD);
 	else
 	{
-		set_1_timestamp_mutex(&p->ts_fork, p);
+		set_1_timeval_mutex(&p->tv_fork, p);
 		print_fork(p);
 	}
 
@@ -39,7 +39,7 @@ int take_forks_right(t_philo *p)
 		return (DEAD);
 	else
 	{
-		set_1_timestamp_mutex(&p->ts_fork, p);
+		set_1_timeval_mutex(&p->tv_fork, p);
 		print_fork(p);
 	}
 
@@ -67,7 +67,7 @@ void give_forks_back(t_philo *p)
 void eat(t_philo *p)
 {
 	// start to eat
-	set_all_timestamp_mutex(p);	
+	set_all_timeval_mutex(p);	
 
 
 

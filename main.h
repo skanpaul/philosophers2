@@ -58,12 +58,13 @@ typedef struct s_philo
 	// ------------------------------
 	bool			philo_dead;
 	// ------------------------------
-	pthread_mutex_t	mtx_timestamp;
-	t_timeval		ts_fork;
-	t_timeval		ts_eat;
-	t_timeval		ts_sleep;
-	t_timeval		ts_think;
-	t_timeval		ts_died;
+	pthread_mutex_t	mtx_timeval;
+	t_timeval		tv_start;
+	t_timeval		tv_fork;
+	t_timeval		tv_eat;
+	t_timeval		tv_sleep;
+	t_timeval		tv_think;
+	t_timeval		tv_died;
 	// ------------------------------
 	t_data			*d;
 	// ------------------------------
@@ -109,8 +110,8 @@ int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 void	ft_msleep(int millisecond);
 /* ************************************************************************** */
-void	set_1_timestamp_mutex(t_timeval *timestamp, t_philo *p);
-void	set_all_timestamp_mutex(t_philo *p);
+void	set_1_timeval_mutex(t_timeval *timestamp, t_philo *p);
+void	set_all_timeval_mutex(t_philo *p);
 int		get_ms_diff(t_timeval *now, t_timeval *ts);
 void	add_ms_to_timeval(int add_ms, t_timeval *ts);
 

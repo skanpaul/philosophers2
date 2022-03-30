@@ -39,14 +39,14 @@ bool is_this_philo_dead(t_philo *p)
 	gettimeofday(&now, NULL);
 
 	// ------------------------------
-	pthread_mutex_lock(&p->mtx_timestamp);
+	pthread_mutex_lock(&p->mtx_timeval);
 	// ------------------------------
-	diff_ms = get_ms_diff(&now, &p->ts_eat);
+	diff_ms = get_ms_diff(&now, &p->tv_eat);
 
 	if (diff_ms >= p->d->time_die)
 	{
-		p->ts_died = p->ts_eat;
-		add_ms_to_timeval(p->d->time_die, &p->ts_died);
+		p->tv_died = p->tv_eat;
+		add_ms_to_timeval(p->d->time_die, &p->tv_died);
 		
 		pthread_mutex_lock(&p->d->mtx_someone_dead);
 		p->philo_dead = true;
@@ -56,7 +56,7 @@ bool is_this_philo_dead(t_philo *p)
 		pthread_mutex_unlock(&p->d->mtx_someone_dead);
 	}
 	// --------------------------------
-	pthread_mutex_unlock(&p->mtx_timestamp);
+	pthread_mutex_unlock(&p->mtx_timeval);
 	// --------------------------------
 
 	return (answer);
@@ -65,10 +65,10 @@ bool is_this_philo_dead(t_philo *p)
 /* ************************************************************************** */
 
 
-	// if (now.tv_sec == p->ts_eat.tv_sec)
-	// 	diff.tv_usec = now.tv_usec - p->ts_eat.tv_usec;
-	// else // if (now.tv_sec > p->ts_eat.tv_sec)
-	// 	diff.tv_usec = (1000000 - p->ts_eat.tv_usec) + now.tv_usec;
+	// if (now.tv_sec == p->tv_eat.tv_sec)
+	// 	diff.tv_usec = now.tv_usec - p->tv_eat.tv_usec;
+	// else // if (now.tv_sec > p->tv_eat.tv_sec)
+	// 	diff.tv_usec = (1000000 - p->tv_eat.tv_usec) + now.tv_usec;
 
 	// if (diff.tv_usec / 1000 >= p->d->time_die)
 
@@ -78,17 +78,17 @@ bool is_this_philo_dead(t_philo *p)
 	// if (
 
 	// 	(
-	// 		(now.tv_sec == p->ts_eat.tv_sec)
+	// 		(now.tv_sec == p->tv_eat.tv_sec)
 	// 		&&
-	// 		((now.tv_usec - p->ts_eat.tv_usec) / 1000 >= p->d->time_die)
+	// 		((now.tv_usec - p->tv_eat.tv_usec) / 1000 >= p->d->time_die)
 	// 	)
 
 	// 	||
 
 	// 	(
-	// 		(now.tv_sec > p->ts_eat.tv_sec)
+	// 		(now.tv_sec > p->tv_eat.tv_sec)
 	// 		&&
-	// 		(((1000000 - p->ts_eat.tv_usec) + now.tv_usec) / 1000 >= p->d->time_die)
+	// 		(((1000000 - p->tv_eat.tv_usec) + now.tv_usec) / 1000 >= p->d->time_die)
 	// 	)
 		
 	// 	)

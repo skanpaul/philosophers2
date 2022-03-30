@@ -5,37 +5,37 @@
 /* ************************************************************************** */
 void print_life(t_philo *p)
 {
-	print_mutex(p, p->ts_eat, MSG_LIFE);
+	print_mutex(p, p->tv_eat, MSG_LIFE);
 }
 
 /* ************************************************************************** */
 void print_fork(t_philo *p)
 {
-	print_mutex(p, p->ts_fork, MSG_FORK);
+	print_mutex(p, p->tv_fork, MSG_FORK);
 }
 
 /* ************************************************************************** */
 void print_eat(t_philo *p)
 {
-	print_mutex(p, p->ts_eat, MSG_EAT);
+	print_mutex(p, p->tv_eat, MSG_EAT);
 }
 
 /* ************************************************************************** */
 void print_sleep(t_philo *p)
 {
-	print_mutex(p, p->ts_sleep, MSG_SLEEP);
+	print_mutex(p, p->tv_sleep, MSG_SLEEP);
 }
 
 /* ************************************************************************** */
 void print_think(t_philo *p)
 {
-	print_mutex(p, p->ts_think, MSG_THINK);
+	print_mutex(p, p->tv_think, MSG_THINK);
 }
 
 /* ************************************************************************** */
 void print_died(t_philo *p)
 {
-	print_mutex(p, p->ts_died, MSG_DIED);
+	print_mutex(p, p->tv_died, MSG_DIED);
 }
 
 /* ************************************************************************** */
