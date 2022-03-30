@@ -22,12 +22,15 @@ void *philo_activity(void *arg)
 			break;
 
 		// EAT & WAIT: finis to eat
-		if (philo_eat(p) == DEAD)
+		if (philo_start_to_eat(p) == DEAD)
 			break;
 
 		// GIVE FORKS BACK
+		philo_give_forks_back(p);
 
 		// SLEEP & WAIT: finis to sleep
+		if (philo_start_to_sleep(p) == DEAD)
+			break;
 
 		// THINK: when necessary TAKE FORK AND EAT
 	}

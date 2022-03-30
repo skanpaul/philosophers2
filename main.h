@@ -138,8 +138,9 @@ void	*philo_activity(void *arg);
 /* -------------------------------------------------------- */
 int		philo_take_forks_left(t_philo *p);
 int		philo_take_forks_right(t_philo *p);
-int		philo_eat(t_philo *p);
+int		philo_start_to_eat(t_philo *p);
 void	philo_give_forks_back(t_philo *p);
+int 	philo_start_to_sleep(t_philo *p);
 
 /* -------------------------------------------------------- */
 void	print_mutex(t_philo *p, t_timeval *timeval, char *msg);

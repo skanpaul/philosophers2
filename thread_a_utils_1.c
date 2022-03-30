@@ -35,7 +35,7 @@ int philo_take_forks_right(t_philo *p)
 }
 
 /* ************************************************************************** */
-int philo_eat(t_philo *p)
+int philo_start_to_eat(t_philo *p)
 {
 	int time_to_eat;
 
@@ -70,6 +70,32 @@ void philo_give_forks_back(t_philo *p)
 	
 	pthread_mutex_unlock(p->mtx_fork_r);
 	pthread_mutex_unlock(p->mtx_fork_l);
+}
+
+/* ************************************************************************** */
+int philo_start_to_sleep(t_philo *p)
+{
+	int time_to_sleep;
+
+	pthread_mutex_lock(&p->mtx_timeval);
+	time_to_sleep = p->d->time_sleep;
+	pthread_mutex_unlock(&p->mtx_timeval);
+
+	if (is_someone_dead_mutex(p->d))
+		return (DEAD);
+	print_sleep(p);
+	
+	ft_msleep(time_to_sleep, 80);
+
+	while(!is_activity_finished(&p->tv_think, p))
+	{
+		if (is_someone_dead_mutex(p->d))
+		return (DEAD);
+
+		ft_msleep(time_to_sleep, 1);
+	}
+	
+	return (ALIVE);
 }
 
 /* ************************************************************************** */
