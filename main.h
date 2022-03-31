@@ -59,15 +59,12 @@ typedef struct s_data
 /* ************************************************************************** */
 typedef struct s_philo
 {
-	int				pos;
 	int				id;
 	pthread_t		th_id;
 	int				pos_f_l; // positon fork left
 	int				pos_f_r; // position fork right	
 	pthread_mutex_t	*mtx_fork_l;
 	pthread_mutex_t	*mtx_fork_r;
-	// ------------------------------
-	pthread_mutex_t	mtx_timeval;
 	// ------------------------------
 	t_timeval		tv_start;
 	t_timeval		tv_born;
@@ -132,7 +129,7 @@ void	ft_msleep(int millisecond, int percent);
 /* ************************************************************************** */
 int64_t get_timestamp(t_timeval *tv, t_philo *p);
 /* -------------------------------------------------------- */
-int64_t	convert_stamp_us(t_timeval *tv);
+int64_t	conv_stamp_us_from_tv(t_timeval *tv);
 int64_t	get_stamp_us_now();
 void	set_all_stamp_us_mutex(t_philo *p);
 bool	is_action_finished(uint64_t stamp_us_next_activity, t_philo *p);

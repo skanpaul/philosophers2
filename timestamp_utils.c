@@ -3,7 +3,7 @@
 #include "main.h"
 
 /* ************************************************************************** */
-int64_t convert_stamp_us(t_timeval *tv)
+int64_t conv_stamp_us_from_tv(t_timeval *tv)
 {
 	int64_t stamp_us;
 
@@ -18,7 +18,7 @@ int64_t get_stamp_us_now()
 	int64_t		stamp_us_now;
 
 	gettimeofday(&now, NULL);
-	stamp_us_now = convert_stamp_us(&now);
+	stamp_us_now = conv_stamp_us_from_tv(&now);
 	return (stamp_us_now);
 }
 

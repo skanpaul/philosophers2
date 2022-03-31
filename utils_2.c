@@ -28,9 +28,6 @@ int init_all_mutex(t_data *d)
 		if (pthread_mutex_init(&d->mtx_fork_list[i], NULL) != 0)
 			return (print_error(TYPE_ERR_MTX_INIT));
 
-		if (pthread_mutex_init(&d->philo_list[i].mtx_timeval, NULL) != 0)
-			return (print_error(TYPE_ERR_MTX_INIT));
-
 		if (pthread_mutex_init(&d->philo_list[i].mtx_stamp_us_died, NULL) != 0)
 			return (print_error(TYPE_ERR_MTX_INIT));
 		i++;
@@ -56,7 +53,6 @@ void destroy_all_mutex(t_data *d)
 	while (i < d->max_philo)
 	{
 		pthread_mutex_destroy(&d->mtx_fork_list[i]);
-		pthread_mutex_destroy(&d->philo_list[i].mtx_timeval);
 		pthread_mutex_destroy(&d->philo_list[i].mtx_stamp_us_died);
 		i++;
 	}

@@ -39,14 +39,6 @@ void print_died(t_philo *p)
 }
 
 /* ************************************************************************** */
-// void print_mutex(t_philo *p, t_timeval *timeval, char *msg)
-// {	
-// 	pthread_mutex_lock(&p->d->mtx_message);
-// 	printf("%16ld[ms] %d %s", timeval->tv_usec / 1000, p->id, msg);
-// 	pthread_mutex_unlock(&p->d->mtx_message);
-// }
-
-/* ************************************************************************** */
 void print_mutex(t_philo *p, t_timeval *timeval, char *msg)
 {
 	long int stamp;

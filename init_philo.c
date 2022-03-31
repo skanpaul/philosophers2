@@ -18,7 +18,6 @@ void init_philo_struct(t_philo *philo_list, t_data *d)
 		//-----------------------------------------
 		p->d = d;
 		//-----------------------------------------
-		p->pos = i;
 		p->id = i + 1;
 		p->th_id = 0;
 		p->pos_f_l = i;							// init position fork LEFT

@@ -11,7 +11,7 @@ int start_thread(t_data *d)
 	t_philo		*p;
 
 	gettimeofday(&tv_start_game, NULL);
-	stamp_us_start_game = convert_stamp_us(&tv_start_game);
+	stamp_us_start_game = conv_stamp_us_from_tv(&tv_start_game);
 
 	i = 0;
 	while (i < d->max_philo)
