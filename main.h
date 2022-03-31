@@ -148,7 +148,8 @@ int 	philo_start_to_sleep(t_philo *p);
 int		philo_start_to_think(t_philo *p);
 
 /* -------------------------------------------------------- */
-void	print_mutex(t_philo *p, t_timeval *timeval, char *msg);
+// void	print_mutex(t_philo *p, t_timeval *timeval, char *msg);
+void	print_mutex(t_philo *p, int64_t stamp_us, char *msg);
 void	print_born(t_philo *p);
 void	print_fork(t_philo *p);
 void	print_eat(t_philo *p);
