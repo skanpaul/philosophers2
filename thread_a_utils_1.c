@@ -64,10 +64,11 @@ void philo_give_forks_back(t_philo *p)
 /* ************************************************************************** */
 int philo_count_meal(t_philo *p)
 {
-	if (p->should_count_meal && p->n_meal >= p->max_meal)
+	if (p->should_count_meal && (p->n_meal >= p->max_meal))
 	{
-		// pthread_mutex_lock()
-		// pthread_mutex_unlock()
+		pthread_mutex_lock(&p->mtx_eat_enough);
+		p->eat_enough = true;
+		pthread_mutex_unlock(&p->mtx_eat_enough);
 		return(EAT_ENOUGH_TIME);
 	}
 

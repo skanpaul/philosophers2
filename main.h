@@ -73,7 +73,7 @@ typedef struct s_philo
 	bool			should_count_meal;
 	int				n_meal;
 	int				max_meal;
-	pthread_mutex_t	*mtx_eat_enough;
+	pthread_mutex_t	mtx_eat_enough;
 	bool			eat_enough;
 	// ------------------------------
 	int64_t			stamp_us_start;
@@ -138,6 +138,8 @@ void	print_eat(t_philo *p);
 void	print_sleep(t_philo *p);
 void	print_think(t_philo *p);
 void	print_died(t_philo *p);
+/* ------------------------------- */
+void	print_max_meal(t_philo *p);
 
 /* ************************************************************************** */
 /* *********************< THREAD: philo_activity >*************************** */
