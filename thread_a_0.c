@@ -8,8 +8,8 @@ void *philo_activity(void *arg)
 	t_philo *p;
 
 	p = (t_philo *)arg;	
-	set_all_timeval_mutex(p);
-	print_born(p);
+	set_all_stamp_mutex(p);
+	// print_born(p);
 
 	// START-LOOP --------------------------------------------------------
 	while (1)

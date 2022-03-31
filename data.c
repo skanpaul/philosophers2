@@ -34,16 +34,23 @@ int save_game_data(int argc, char **argv, t_data *d)
 		i++;
 	}
 	d->max_philo = ft_atoi(argv[1]);
+	// -------------------------------------
 	d->time_die = ft_atoi(argv[2]);
 	d->time_eat = ft_atoi(argv[3]);
 	d->time_sleep = ft_atoi(argv[4]);
-
-	d->time_think = d->time_die - d->time_eat - d->time_sleep;
-	if (d->time_think < 0)
-		d->time_think = 0;
-
+	// -------------------------------------
 	if (argc == 6)
 		d->max_eat = ft_atoi(argv[5]);
+	// -------------------------------------
+	d->time_us_die = d->time_die * 1000;
+	d->time_us_eat = d->time_eat * 1000;
+	d->time_us_sleep = d->time_sleep * 1000;
+	// -------------------------------------
+	d->time_think = d->time_die - d->time_eat - d->time_sleep;
+	if (d->time_think <= 0)
+		d->time_think = 0;
+	d->time_us_think = d->time_think * 1000;
+	// -------------------------------------
 
 	if (INFO)
 	{

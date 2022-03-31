@@ -10,8 +10,7 @@
 // ATTENTION		LE PROGRAMME NE SARRETE JAMAIS
 // ATTENTION
 /* ************************************************************************** */
-
-long int get_timestamp(t_timeval *tv, t_philo *p)
+int64_t get_timestamp(t_timeval *tv, t_philo *p)
 {
 	int64_t tv_ms;
 	int64_t start_ms;
@@ -22,7 +21,8 @@ long int get_timestamp(t_timeval *tv, t_philo *p)
 
 	result_ms = tv_ms - start_ms;
 
-	return ((long int)result_ms);
+	return ((int64_t)result_ms);
 }
+
 
 /* ************************************************************************** */

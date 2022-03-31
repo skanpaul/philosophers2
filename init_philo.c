@@ -33,13 +33,13 @@ void init_philo_struct(t_philo *philo_list, t_data *d)
 		p->tv_think = (t_timeval){0,0};
 		p->tv_died = (t_timeval){0,0};
 		//-----------------------------------------
-		p->stamp_start = 0;
-		p->stamp_born = 0;
-		p->stamp_fork = 0;
-		p->stamp_eat = 0;
-		p->stamp_sleep = 0;
-		p->stamp_think = 0;
-		p->stamp_died = 0;
+		p->stamp_us_start = 0;
+		p->stamp_us_born = 0;
+		p->stamp_us_fork = 0;
+		p->stamp_us_eat = 0;
+		p->stamp_us_sleep = 0;
+		p->stamp_us_think = 0;
+		p->stamp_us_died = 0;
 		//-----------------------------------------
 		i++;
 	}

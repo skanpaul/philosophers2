@@ -32,11 +32,16 @@ typedef struct timeval t_timeval;
 typedef struct s_data
 {
 	int				max_philo;
-	int				time_die;	 	// milliseconde
-	int				time_eat;	 	// milliseconde
-	int				time_sleep; 	// milliseconde
-	int				time_think; 	// milliseconde
+	int				time_die;	 	// milli-seconde
+	int				time_eat;	 	// milli-seconde
+	int				time_sleep; 	// milli-seconde
+	int				time_think; 	// milli-seconde
 	int				max_eat;		// OPTIONAL
+	// ------------------------------
+	int				time_us_die;	// micro-seconde
+	int				time_us_eat;	// micro-seconde
+	int				time_us_sleep; 	// micro-seconde
+	int				time_us_think; 	// micro-seconde
 	int				operation;
 	// ------------------------------
 	pthread_mutex_t	mtx_someone_dead;
@@ -72,13 +77,13 @@ typedef struct s_philo
 	t_timeval		tv_think;
 	t_timeval		tv_died;
 	// ------------------------------
-	long int		stamp_start;
-	long int		stamp_born;
-	long int		stamp_fork;
-	long int		stamp_eat;
-	long int		stamp_sleep;
-	long int		stamp_think;
-	long int		stamp_died;
+	int64_t		stamp_us_start;
+	int64_t		stamp_us_born;
+	int64_t		stamp_us_fork;
+	int64_t		stamp_us_eat;
+	int64_t		stamp_us_sleep;
+	int64_t		stamp_us_think;
+	int64_t		stamp_us_died;
 	// ------------------------------
 	t_data			*d;
 	// ------------------------------
@@ -131,7 +136,11 @@ void	add_ms_to_timeval(int add_ms, t_timeval *ts);
 bool	is_timeval_greater_or_equal_to(t_timeval *tv_a, t_timeval *tv_b);
 bool	is_activity_finished(t_timeval *tv_end, t_philo *p);
 /* -------------------------------------------------------- */
-long int get_timestamp(t_timeval *tv, t_philo *p);
+int64_t get_timestamp(t_timeval *tv, t_philo *p);
+/* -------------------------------------------------------- */
+int64_t	convert_stamp_us(t_timeval *tv);
+int64_t	get_stamp_us_now();
+void	set_all_stamp_mutex(t_philo *p);
 
 /* ************************************************************************** */
 /* *********************< THREAD: philo_activity >*************************** */

@@ -10,7 +10,7 @@
 			"request": "launch",
 			"program": "${fileDirname}/philo",
 			"args": [
-				"2",
+				"1",
 				"1000",
 				"200",
 				"200"
