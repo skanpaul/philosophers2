@@ -130,13 +130,6 @@ int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 void	ft_msleep(int millisecond, int percent);
 /* ************************************************************************** */
-void	set_1_timeval_mutex(t_timeval *timestamp, t_philo *p);
-void	set_all_timeval_mutex(t_philo *p);
-int		get_ms_diff(t_timeval *now, t_timeval *ts);
-void	add_ms_to_timeval(int add_ms, t_timeval *ts);
-bool	is_timeval_greater_or_equal_to(t_timeval *tv_a, t_timeval *tv_b);
-bool	is_activity_finished(t_timeval *tv_end, t_philo *p);
-/* -------------------------------------------------------- */
 int64_t get_timestamp(t_timeval *tv, t_philo *p);
 /* -------------------------------------------------------- */
 int64_t	convert_stamp_us(t_timeval *tv);

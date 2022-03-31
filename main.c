@@ -35,29 +35,4 @@ int main(int argc, char **argv)
 	return (NO_ERROR);
 }
 
-
-/* ************************************************************************** */
-	// t_timeval new;
-	// t_timeval old;
-	// gettimeofday(&old, NULL);
-	// while (1)
-	// {
-	// 	gettimeofday(&new, NULL);
-	// 	printf("[%ld][%ld]\n", new.tv_sec, new.tv_usec);
-	// 	printf("diff_ms: %d\n", get_ms_diff(&new, &old));
-	// 	old = new;
-	// }
-/* ************************************************************************** */
-	// t_timeval new;
-	// int time_ms = 23051;
-
-	// new.tv_sec = 12;
-	// new.tv_usec = 950000;
-	// add_ms_to_timeval(time_ms, &new);
-
-/* ************************************************************************** */
-	// printf("size of int: %lu byte\n", sizeof(int));
-	// printf("size of long int: %lu byte\n", sizeof(long int));
-	// printf("size of long long int: %lu byte\n", sizeof(long long int));
-	// printf("size of int64_t: %lu byte\n", sizeof(int64_t));
 /* ************************************************************************** */
