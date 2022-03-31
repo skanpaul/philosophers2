@@ -57,7 +57,7 @@ int philo_start_to_eat(t_philo *p)
 		if (is_someone_dead_mutex(p->d))
 		return (DEAD);
 
-		ft_msleep(time_to_eat, 1);
+		usleep(TIME_USLEEP);
 	}
 
 	return (ALIVE);
@@ -90,9 +90,9 @@ int philo_start_to_sleep(t_philo *p)
 	while(!is_activity_finished(&p->tv_think, p))
 	{
 		if (is_someone_dead_mutex(p->d))
-		return (DEAD);
+		return (DEAD);		
 
-		ft_msleep(time_to_sleep, 1);
+		usleep(TIME_USLEEP);
 	}
 	
 	return (ALIVE);
@@ -107,10 +107,10 @@ int philo_start_to_think(t_philo *p)
 		return (DEAD);
 	print_think (p);
 
-	ft_msleep(p->d->time_think, 20);
+	// ft_msleep(p->d->time_think, 20);
 
-	if (is_someone_dead_mutex(p->d))
-		return (DEAD);
+	// if (is_someone_dead_mutex(p->d))
+	// 	return (DEAD);
 
 	return (ALIVE);
 }
