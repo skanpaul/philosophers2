@@ -18,6 +18,7 @@ int start_thread(t_data *d)
 	{
 		p = &d->philo_list[i];
 		p->stamp_us_start = stamp_us_start_game;
+		p->should_count_meal = d->should_count_meal;
 		// ------------------------------------------------------------------
 		if (pthread_create(&p->th_id, NULL, &philo_activity, (void *)p) != 0)
 			return (print_error(TYPE_ERR_THD_CREATE));

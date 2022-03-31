@@ -6,6 +6,7 @@
 /* ************************************************************************** */
 # define INFO			1
 # define ERRORING		1
+# define CHECK_GAME		0
 /* ************************************************************************** */
 # define NO_ERROR		0
 # define ERROR			1
@@ -36,6 +37,8 @@ typedef struct s_data
 	int				time_think; 	// milli-seconde
 	int				max_eat;		// OPTIONAL
 	// ------------------------------
+	bool			should_count_meal;
+	// ------------------------------
 	int				time_us_die;	// micro-seconde
 	int				time_us_eat;	// micro-seconde
 	int				time_us_sleep; 	// micro-seconde
@@ -64,6 +67,7 @@ typedef struct s_philo
 	pthread_mutex_t	*mtx_fork_l;
 	pthread_mutex_t	*mtx_fork_r;
 	// ------------------------------
+	bool			should_count_meal;
 	int				n_meal;
 	int				max_meal;
 	// ------------------------------
@@ -117,11 +121,18 @@ int		print_error(t_error type_error);
 bool	is_countable(char *str);
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
-/* ************************************************************************** */
+/* -------------------------------------------------------- */
 int64_t	conv_stamp_us_from_tv(t_timeval *tv);
 int64_t	get_stamp_us_now();
 void	set_all_stamp_us_mutex(t_philo *p);
 bool	is_action_finished(uint64_t stamp_us_next_activity);
+/* -------------------------------------------------------- */
+void	print_mutex(t_philo *p, int64_t stamp_us, char *msg);
+void	print_fork(t_philo *p);
+void	print_eat(t_philo *p);
+void	print_sleep(t_philo *p);
+void	print_think(t_philo *p);
+void	print_died(t_philo *p);
 
 /* ************************************************************************** */
 /* *********************< THREAD: philo_activity >*************************** */
@@ -135,13 +146,6 @@ void	philo_give_forks_back(t_philo *p);
 int		philo_start_to_eat(t_philo *p);
 int 	philo_start_to_sleep(t_philo *p);
 int		philo_start_to_think(t_philo *p);
-/* -------------------------------------------------------- */
-void	print_mutex(t_philo *p, int64_t stamp_us, char *msg);
-void	print_fork(t_philo *p);
-void	print_eat(t_philo *p);
-void	print_sleep(t_philo *p);
-void	print_think(t_philo *p);
-void	print_died(t_philo *p);
 
 /* ************************************************************************** */
 /* ************************< THREAD: check_life >**************************** */

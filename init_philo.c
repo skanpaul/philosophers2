@@ -25,6 +25,7 @@ void init_philo_struct(t_philo *philo_list, t_data *d)
 		p->mtx_fork_l = &p->d->mtx_fork_list[p->pos_f_l];
 		p->mtx_fork_r = &p->d->mtx_fork_list[p->pos_f_r];
 		//-----------------------------------------
+		p->should_count_meal = false;
 		p->n_meal = 0;
 		p->max_meal = p->d->max_eat;
 		//-----------------------------------------

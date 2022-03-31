@@ -40,7 +40,10 @@ int save_game_data(int argc, char **argv, t_data *d)
 	d->time_sleep = ft_atoi(argv[4]);
 	// -------------------------------------
 	if (argc == 6)
+	{
 		d->max_eat = ft_atoi(argv[5]);
+		d->should_count_meal = true;
+	}
 	// -------------------------------------
 	d->time_us_die = d->time_die * 1000;
 	d->time_us_eat = d->time_eat * 1000;
@@ -67,7 +70,7 @@ int save_game_data(int argc, char **argv, t_data *d)
 /* ************************************************************************** */
 int check_game_data(t_data *d, int argc)
 {
-	if (INFO == 0)
+	if (CHECK_GAME == 0)
 		return (NO_ERROR);
 
 	if (d->max_philo <= 0)
