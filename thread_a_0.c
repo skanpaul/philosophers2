@@ -11,7 +11,8 @@ void *philo_activity(void *arg)
 	set_all_stamp_us_mutex(p);
 
 	// START-LOOP --------------------------------------------------------
-	while (1)
+	while (!p->should_count_meal
+			|| (p->should_count_meal && p->n_meal != p->max_meal))
 	{
 		// TAKE FORKS LEFT
 		if (philo_take_forks_left(p) == DEAD)
@@ -38,6 +39,7 @@ void *philo_activity(void *arg)
 	}
 	// END-LOOP ---------------------------------------------------------
 
+	// print has finishe to eat
 
 	return (arg);
 }
