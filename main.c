@@ -13,8 +13,8 @@ int main(int argc, char **argv)
 		return (print_error(TYPE_ERR_ARG));		
 	if(save_game_data(argc, argv, &d) == ERROR)
 		return (print_error(TYPE_ERR_CNT));
-	if (check_game_data(&d, argc) == ERROR)
-		return (ERROR);
+	// if (check_game_data(&d, argc) == ERROR)
+	// 	return (ERROR);
 	/* -------------------------------------------- */
 	if (malloc_philos_and_forks_and_thread(&d) == ERROR)
 		return (ERROR + free_all_malloc(&d));

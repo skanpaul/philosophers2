@@ -77,13 +77,14 @@ typedef struct s_philo
 	t_timeval		tv_think;
 	t_timeval		tv_died;
 	// ------------------------------
-	int64_t		stamp_us_start;
-	int64_t		stamp_us_born;
-	int64_t		stamp_us_fork;
-	int64_t		stamp_us_eat;
-	int64_t		stamp_us_sleep;
-	int64_t		stamp_us_think;
-	int64_t		stamp_us_died;
+	int64_t			stamp_us_start;
+	int64_t			stamp_us_born;
+	int64_t			stamp_us_fork;
+	int64_t			stamp_us_eat;
+	int64_t			stamp_us_sleep;
+	int64_t			stamp_us_think;
+	pthread_mutex_t	mtx_stamp_us_died;
+	int64_t			stamp_us_died;
 	// ------------------------------
 	t_data			*d;
 	// ------------------------------
@@ -140,7 +141,8 @@ int64_t get_timestamp(t_timeval *tv, t_philo *p);
 /* -------------------------------------------------------- */
 int64_t	convert_stamp_us(t_timeval *tv);
 int64_t	get_stamp_us_now();
-void	set_all_stamp_mutex(t_philo *p);
+void	set_all_stamp_us_mutex(t_philo *p);
+bool	is_action_finished(uint64_t stamp_us_next_activity, t_philo *p);
 
 /* ************************************************************************** */
 /* *********************< THREAD: philo_activity >*************************** */

@@ -23,7 +23,7 @@ bool is_this_philo_dead(t_philo *p)
 	stamp_us_now = get_stamp_us_now();
 	answer = false;	
 
-	// pthread_mutex_lock(&p->mtx_timeval);
+	pthread_mutex_lock(&p->mtx_stamp_us_died);
 	// ------------------------------------
 	if (stamp_us_now >= p->stamp_us_died)
 	{
@@ -35,8 +35,8 @@ bool is_this_philo_dead(t_philo *p)
 		//--------------------------------------------		
 		pthread_mutex_unlock(&p->d->mtx_someone_dead);
 	}
-	// ------------------------------------
-	// pthread_mutex_unlock(&p->mtx_timeval);
+	// ------------------------------------	
+	pthread_mutex_unlock(&p->mtx_stamp_us_died);
 	return (answer);
 }
 

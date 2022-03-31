@@ -37,13 +37,13 @@ int philo_take_forks_right(t_philo *p)
 /* ************************************************************************** */
 int philo_start_to_eat(t_philo *p)
 {
-	set_all_stamp_mutex(p);
+	set_all_stamp_us_mutex(p);
 	
 	if (is_someone_dead_mutex(p->d))
 		return (DEAD);
 	print_eat(p);
 
-	while(!is_activity_finished(&p->tv_sleep, p))
+	while(!is_action_finished(p->stamp_us_sleep, p))
 	{
 		if (is_someone_dead_mutex(p->d))
 			return (DEAD);
@@ -69,7 +69,7 @@ int philo_start_to_sleep(t_philo *p)
 
 	print_sleep(p);
 	
-	while(!is_activity_finished(&p->tv_think, p))
+	while(!is_action_finished(p->stamp_us_think, p))
 	{
 		if (is_someone_dead_mutex(p->d))
 			return (DEAD);
@@ -89,6 +89,25 @@ int philo_start_to_think(t_philo *p)
 }
 
 /* ************************************************************************** */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // /* ************************************************************************** */
 // int philo_take_forks_left(t_philo *p)

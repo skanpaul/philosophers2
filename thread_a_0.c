@@ -8,7 +8,7 @@ void *philo_activity(void *arg)
 	t_philo *p;
 
 	p = (t_philo *)arg;	
-	set_all_stamp_mutex(p);
+	set_all_stamp_us_mutex(p);
 	// print_born(p);
 
 	// START-LOOP --------------------------------------------------------
