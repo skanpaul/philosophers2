@@ -62,8 +62,6 @@ typedef struct s_philo
 	pthread_mutex_t	*mtx_fork_l;
 	pthread_mutex_t	*mtx_fork_r;
 	// ------------------------------
-	bool			philo_dead;
-	// ------------------------------
 	pthread_mutex_t	mtx_timeval;
 	// ------------------------------
 	t_timeval		tv_start;

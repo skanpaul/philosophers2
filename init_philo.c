@@ -25,7 +25,6 @@ void init_philo_struct(t_philo *philo_list, t_data *d)
 		p->pos_f_r = give_pos_fork_right(p, i);	// init position fork RIGHT
 		p->mtx_fork_l = &p->d->mtx_fork_list[p->pos_f_l];
 		p->mtx_fork_r = &p->d->mtx_fork_list[p->pos_f_r];
-		p->philo_dead = false;
 		//-----------------------------------------
 		p->tv_born = (t_timeval){0,0};
 		p->tv_fork = (t_timeval){0,0};

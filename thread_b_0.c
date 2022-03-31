@@ -49,7 +49,6 @@ bool is_this_philo_dead(t_philo *p)
 		add_ms_to_timeval(p->d->time_die, &p->tv_died);
 		
 		pthread_mutex_lock(&p->d->mtx_someone_dead);
-		p->philo_dead = true;
 		p->d->someone_dead = true;
 		answer = true;
 		print_died(p);
