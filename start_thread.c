@@ -30,7 +30,7 @@ int start_thread(t_data *d)
 		i++;
 	}
 
-	if (pthread_create(&d->thd_check_life, NULL, &check_life, (void *)d) != 0)
+	if (pthread_create(&d->thd_check_life, NULL, &check_end, (void *)d) != 0)
 		return (print_error(TYPE_ERR_THD_CREATE));
 
 	return (NO_ERROR);

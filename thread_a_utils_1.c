@@ -43,6 +43,8 @@ int philo_start_to_eat(t_philo *p)
 		return (DEAD);
 	print_eat(p);
 
+	p->n_meal++;
+
 	while(!is_action_finished(p->stamp_us_sleep))
 	{
 		if (is_someone_dead_mutex(p->d))
@@ -55,10 +57,21 @@ int philo_start_to_eat(t_philo *p)
 /* ************************************************************************** */
 void philo_give_forks_back(t_philo *p)
 {
-	// ATTENTION: PEUT-ETRE INVERSER FOURCHETTE
-	
 	pthread_mutex_unlock(p->mtx_fork_r);
 	pthread_mutex_unlock(p->mtx_fork_l);
+}
+
+/* ************************************************************************** */
+int philo_count_meal(t_philo *p)
+{
+	if (p->should_count_meal && p->n_meal >= p->max_meal)
+	{
+		// pthread_mutex_lock()
+		// pthread_mutex_unlock()
+		return(EAT_ENOUGH_TIME);
+	}
+
+	return (EAT_NOT_ENOUGH_TIME);
 }
 
 /* ************************************************************************** */

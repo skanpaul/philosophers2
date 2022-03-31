@@ -28,6 +28,7 @@ void init_philo_struct(t_philo *philo_list, t_data *d)
 		p->should_count_meal = false;
 		p->n_meal = 0;
 		p->max_meal = p->d->max_eat;
+		p->eat_enough = false;
 		//-----------------------------------------
 		p->stamp_us_start = 0;
 		p->stamp_us_fork = 0;

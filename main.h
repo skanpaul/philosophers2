@@ -14,6 +14,9 @@
 # define DEAD			0
 # define ALIVE			1
 /* ************************************************************************** */
+# define EAT_NOT_ENOUGH_TIME	0
+# define EAT_ENOUGH_TIME		1
+/* ************************************************************************** */
 # include <pthread.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -70,6 +73,8 @@ typedef struct s_philo
 	bool			should_count_meal;
 	int				n_meal;
 	int				max_meal;
+	pthread_mutex_t	*mtx_eat_enough;
+	bool			eat_enough;
 	// ------------------------------
 	int64_t			stamp_us_start;
 	int64_t			stamp_us_fork;
@@ -146,11 +151,12 @@ void	philo_give_forks_back(t_philo *p);
 int		philo_start_to_eat(t_philo *p);
 int 	philo_start_to_sleep(t_philo *p);
 int		philo_start_to_think(t_philo *p);
-
+// ---------------------------------------
+int		philo_count_meal(t_philo *p);
 /* ************************************************************************** */
-/* ************************< THREAD: check_life >**************************** */
+/* **************************< THREAD: check_end >*************************** */
 /* ************************************************************************** */
-void	*check_life(void *arg);
+void	*check_end(void *arg);
 /* -------------------------------------------------------- */
 bool	is_this_philo_dead(t_philo *p);
 bool	is_someone_dead_mutex(t_data *d);
