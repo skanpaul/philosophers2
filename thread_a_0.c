@@ -9,7 +9,6 @@ void *philo_activity(void *arg)
 
 	p = (t_philo *)arg;	
 	set_all_stamp_us_mutex(p);
-	// print_born(p);
 
 	// START-LOOP --------------------------------------------------------
 	while (1)

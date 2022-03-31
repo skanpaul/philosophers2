@@ -13,8 +13,6 @@
 # define DEAD			0
 # define ALIVE			1
 /* ************************************************************************** */
-# define TIME_USLEEP	50
-/* ************************************************************************** */
 # include <pthread.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -42,7 +40,6 @@ typedef struct s_data
 	int				time_us_eat;	// micro-seconde
 	int				time_us_sleep; 	// micro-seconde
 	int				time_us_think; 	// micro-seconde
-	int				operation;
 	// ------------------------------
 	pthread_mutex_t	mtx_someone_dead;
 	bool			someone_dead;
@@ -53,6 +50,7 @@ typedef struct s_data
 	// ------------------------------
 	pthread_mutex_t	mtx_finish_main;
 	pthread_mutex_t	mtx_message;
+	int				operation;
 	// ------------------------------
 
 } t_data;
@@ -66,8 +64,10 @@ typedef struct s_philo
 	pthread_mutex_t	*mtx_fork_l;
 	pthread_mutex_t	*mtx_fork_r;
 	// ------------------------------
+	int				n_meal;
+	int				max_meal;
+	// ------------------------------
 	int64_t			stamp_us_start;
-	int64_t			stamp_us_born;
 	int64_t			stamp_us_fork;
 	int64_t			stamp_us_eat;
 	int64_t			stamp_us_sleep;
@@ -142,7 +142,6 @@ int		philo_start_to_think(t_philo *p);
 /* -------------------------------------------------------- */
 // void	print_mutex(t_philo *p, t_timeval *timeval, char *msg);
 void	print_mutex(t_philo *p, int64_t stamp_us, char *msg);
-void	print_born(t_philo *p);
 void	print_fork(t_philo *p);
 void	print_eat(t_philo *p);
 void	print_sleep(t_philo *p);
