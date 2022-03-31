@@ -17,7 +17,6 @@ int start_thread(t_data *d)
 	while (i < d->max_philo)
 	{
 		p = &d->philo_list[i];
-		p->tv_start = tv_start_game;
 		p->stamp_us_start = stamp_us_start_game;
 		// ------------------------------------------------------------------
 		if (pthread_create(&p->th_id, NULL, &philo_activity, (void *)p) != 0)

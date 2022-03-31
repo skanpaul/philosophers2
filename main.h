@@ -66,14 +66,6 @@ typedef struct s_philo
 	pthread_mutex_t	*mtx_fork_l;
 	pthread_mutex_t	*mtx_fork_r;
 	// ------------------------------
-	t_timeval		tv_start;
-	t_timeval		tv_born;
-	t_timeval		tv_fork;
-	t_timeval		tv_eat;
-	t_timeval		tv_sleep;
-	t_timeval		tv_think;
-	t_timeval		tv_died;
-	// ------------------------------
 	int64_t			stamp_us_start;
 	int64_t			stamp_us_born;
 	int64_t			stamp_us_fork;
