@@ -5,8 +5,6 @@
 /* ************************************************************************** */
 int malloc_philos_and_forks_and_thread(t_data *d)
 {
-	int i;
-
 	// MALLOC philo struct
 	if ((d->philo_list = malloc(d->max_philo * sizeof(t_philo))) == NULL)
 		return(print_error(TYPE_ERR_MALLOC_PHILO));

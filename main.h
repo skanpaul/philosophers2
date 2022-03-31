@@ -117,14 +117,11 @@ int		print_error(t_error type_error);
 bool	is_countable(char *str);
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
-void	ft_msleep(int millisecond, int percent);
 /* ************************************************************************** */
-int64_t get_timestamp(t_timeval *tv, t_philo *p);
-/* -------------------------------------------------------- */
 int64_t	conv_stamp_us_from_tv(t_timeval *tv);
 int64_t	get_stamp_us_now();
 void	set_all_stamp_us_mutex(t_philo *p);
-bool	is_action_finished(uint64_t stamp_us_next_activity, t_philo *p);
+bool	is_action_finished(uint64_t stamp_us_next_activity);
 
 /* ************************************************************************** */
 /* *********************< THREAD: philo_activity >*************************** */
@@ -138,9 +135,7 @@ void	philo_give_forks_back(t_philo *p);
 int		philo_start_to_eat(t_philo *p);
 int 	philo_start_to_sleep(t_philo *p);
 int		philo_start_to_think(t_philo *p);
-
 /* -------------------------------------------------------- */
-// void	print_mutex(t_philo *p, t_timeval *timeval, char *msg);
 void	print_mutex(t_philo *p, int64_t stamp_us, char *msg);
 void	print_fork(t_philo *p);
 void	print_eat(t_philo *p);

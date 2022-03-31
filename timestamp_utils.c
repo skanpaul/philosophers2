@@ -39,7 +39,7 @@ void set_all_stamp_us_mutex(t_philo *p)
 }
 
 /* ************************************************************************** */
-bool is_action_finished(uint64_t stamp_us_next_activity, t_philo *p)
+bool is_action_finished(uint64_t stamp_us_next_activity)
 {
 	uint64_t stamp_us_now;
 

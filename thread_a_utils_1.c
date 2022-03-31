@@ -43,7 +43,7 @@ int philo_start_to_eat(t_philo *p)
 		return (DEAD);
 	print_eat(p);
 
-	while(!is_action_finished(p->stamp_us_sleep, p))
+	while(!is_action_finished(p->stamp_us_sleep))
 	{
 		if (is_someone_dead_mutex(p->d))
 			return (DEAD);
@@ -69,7 +69,7 @@ int philo_start_to_sleep(t_philo *p)
 
 	print_sleep(p);
 	
-	while(!is_action_finished(p->stamp_us_think, p))
+	while(!is_action_finished(p->stamp_us_think))
 	{
 		if (is_someone_dead_mutex(p->d))
 			return (DEAD);
