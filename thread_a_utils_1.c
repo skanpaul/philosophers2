@@ -44,18 +44,18 @@ int philo_start_to_eat(t_philo *p)
 	pthread_mutex_lock(&p->mtx_timeval);
 	time_to_eat = p->d->time_eat;
 	pthread_mutex_unlock(&p->mtx_timeval);	
-
-
+	
+	
 	if (is_someone_dead_mutex(p->d))
 		return (DEAD);
 	print_eat(p);
 	
-	ft_msleep(time_to_eat, 80);
+	ft_msleep(time_to_eat, 50);
 
 	while(!is_activity_finished(&p->tv_sleep, p))
 	{
 		if (is_someone_dead_mutex(p->d))
-		return (DEAD);
+			return (DEAD);
 
 		usleep(TIME_USLEEP);
 	}
@@ -80,12 +80,12 @@ int philo_start_to_sleep(t_philo *p)
 	pthread_mutex_lock(&p->mtx_timeval);
 	time_to_sleep = p->d->time_sleep;
 	pthread_mutex_unlock(&p->mtx_timeval);
-
+	
 	if (is_someone_dead_mutex(p->d))
 		return (DEAD);
 	print_sleep(p);
 	
-	ft_msleep(time_to_sleep, 80);
+	ft_msleep(time_to_sleep, 50);
 
 	while(!is_activity_finished(&p->tv_think, p))
 	{
@@ -108,7 +108,6 @@ int philo_start_to_think(t_philo *p)
 	print_think (p);
 
 	// ft_msleep(p->d->time_think, 20);
-
 	// if (is_someone_dead_mutex(p->d))
 	// 	return (DEAD);
 

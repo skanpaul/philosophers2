@@ -51,19 +51,10 @@ void print_mutex(t_philo *p, t_timeval *timeval, char *msg)
 {
 	long int stamp;
 	
-	pthread_mutex_lock(&p->d->mtx_message);
+	// pthread_mutex_lock(&p->d->mtx_message);
 	stamp = get_timestamp(timeval, p);
 	printf("op:%10d | %10ld[ms] %d %s", p->d->operation, stamp, p->id, msg);
 	p->d->operation++;
-	pthread_mutex_unlock(&p->d->mtx_message);
+	// pthread_mutex_unlock(&p->d->mtx_message);
 }
-// void print_mutex(t_philo *p, t_timeval *timeval, char *msg)
-// {
-// 	long int stamp;
-
-// 	stamp = get_timestamp(timeval, p);
-	
-// 	// pthread_mutex_lock(&p->d->mtx_message);
-// 	printf("%10ld[ms] %d %s", stamp, p->id, msg);
-// 	// pthread_mutex_unlock(&p->d->mtx_message);
-// }
+/* ************************************************************************** */
