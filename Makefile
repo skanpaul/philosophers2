@@ -12,13 +12,29 @@
 NAME	= philo
 
 CC		= gcc
-CFLAG	= -g -Wall -Wextra -Werror
+CFLAG	= -Wall -Wextra -Werror
 TFLAG	= -pthread
 
 RM		= rm -f
 # **************************************************************************** #
 
-SRC		= $(wildcard *.c)
+# SRC		= $(wildcard *.c)
+SRC		=	print_status_1.c \
+			check_end.c \
+			print_status_2.c \
+			check_end_utils.c \
+			start_thread.c \
+			data.c \
+			philo_activity.c \
+			timestamp_utils.c \
+			init_philo.c \
+			philo_activity_utils_1.c \
+			utils_1.c \
+			main.c \
+			philo_activity_utils_2.c \
+			utils_2.c \
+			print_error.c
+
 OBJ		= $(SRC:.c=.o)
 
 # **************************************************************************** #
