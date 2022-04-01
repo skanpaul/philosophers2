@@ -79,17 +79,11 @@ int save_game_data(int argc, char **argv, t_data *d)
 /* ************************************************************************** */
 int check_game_data(t_data *d, int argc)
 {
-	if (CHECK_GAME == 0)
-		return (NO_ERROR);
-
 	if (d->max_philo <= 0)
 		return (print_error(TYPE_ERR_MAX_PHILO));
 
 	if (d->time_die < 0 || d->time_eat < 0 || d->time_sleep < 0)
 		return (print_error(TYPE_ERR_TIME_NEGATIVE));
-
-	// if (d->time_eat + d->time_sleep > d->time_die)
-		// return (print_error(TYPE_ERR_TIME_EAT_SLEEP));
 
 	if (argc == 6 && d->max_eat < 1)
 		return (print_error(TYPE_ERR_MAX_EAT));
