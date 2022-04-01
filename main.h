@@ -23,6 +23,10 @@
 # define EAT_NOT_ENOUGH_TIME	0
 # define EAT_ENOUGH_TIME		1
 /* ************************************************************************** */
+/* ************************************************************************** */
+# define SHOULD_NOT_RETURN	0
+# define SHOULD_RETURN		1
+/* ************************************************************************** */
 # include <pthread.h>
 # include <stdio.h>
 # include <stdlib.h>
